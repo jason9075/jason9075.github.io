@@ -1,0 +1,40 @@
+body {
+    background-color: #15100D;
+    background-position: center top;
+    background-image: url("https://gc.cmwebgame.com/image/bg.jpg");
+    text-align:center;
+}
+
+h2 {
+    width: 100%;
+    text-align:center;
+    padding: 30px;
+    color: red;
+    font-size: 60px;
+}
+
+p{
+	width: 100%;
+	color: grey;
+	text-align:center;
+	padding: 30px;
+	font-size: 30px;
+	display: block;
+}
+
+span 
+{
+    display: block;
+}
+
+.high {
+	color: pink;
+	border-bottom: 3px solid #EC407A;
+	background: none;
+	margin: 0 -2px;
+	padding: 0 2px;
+}
+
+.row {
+	background-color: #15100D;
+}
