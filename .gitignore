@@ -1,0 +1,11 @@
+# direnv cache
+.direnv/
+
+# env / secrets
+.env
+.env.*
+*.credentials.json
+
+# OS
+.DS_Store
+Thumbs.db
