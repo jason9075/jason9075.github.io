@@ -1,15 +1,288 @@
 <!doctype html>
-<html lang="zh-TW">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>jason9075</title>
+    <title>jason9075 — Graphics &amp; Math</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+
+    <header>
+      <div class="hero">
+        <div class="hero-meta">
+          <span class="hero-label">jason9075</span>
+          <a class="gh-link" href="https://github.com/jason9075" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+        </div>
+        <h1>Graphics &amp; Math<br><span>Interactive Demos</span></h1>
+        <p class="hero-sub">Browser-based visualizations exploring 3D rendering, computer vision, and mathematical concepts.</p>
+        <div class="search-wrap">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input id="search" type="search" placeholder="Search demos…" autocomplete="off" spellcheck="false" />
+          <kbd class="search-esc" id="search-esc" aria-hidden="true">esc</kbd>
+        </div>
+      </div>
+    </header>
+
     <main>
-      <h1>Hello, World.</h1>
-      <p>Under construction.</p>
+      <!-- Search results (shown when query is active) -->
+      <section class="search-results hidden" id="search-results">
+        <p class="results-label" id="results-label"></p>
+        <div class="grid" id="results-grid"></div>
+      </section>
+
+      <!-- Grouped sections (default view) -->
+      <div id="groups">
+
+        <section class="group">
+          <header class="group-header">
+            <span class="group-dot dot-3d"></span>
+            <h2>3D &amp; Rendering</h2>
+            <span class="group-count">3</span>
+          </header>
+          <div class="grid">
+            <article class="card" data-group="3d" data-title="TSDF Fusion" data-desc="Visualizes Truncated Signed Distance Function volumetric fusion — the core technique behind depth-camera 3D reconstruction.">
+              <a class="card-link" href="https://jason9075.github.io/TSDF-Fusion-Demo/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
+              <div class="card-accent accent-3d"></div>
+              <div class="card-body">
+                <h3>TSDF Fusion</h3>
+                <p>Visualizes Truncated Signed Distance Function volumetric fusion — the core technique behind depth-camera 3D reconstruction.</p>
+              </div>
+              <div class="card-footer">
+                <a class="btn-demo" href="https://jason9075.github.io/TSDF-Fusion-Demo/" target="_blank" rel="noopener">Open Demo →</a>
+              </div>
+            </article>
+
+            <article class="card" data-group="3d" data-title="Gaussian Splatting Explained" data-desc="Step-by-step visual breakdown of 3D Gaussian Splatting — from covariance matrices and opacity to alpha compositing.">
+              <a class="card-link" href="https://jason9075.github.io/Gaussian-Splatting-Explained/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
+              <div class="card-accent accent-3d"></div>
+              <div class="card-body">
+                <h3>Gaussian Splatting Explained</h3>
+                <p>Step-by-step visual breakdown of 3D Gaussian Splatting — from covariance matrices and opacity to alpha compositing.</p>
+              </div>
+              <div class="card-footer">
+                <a class="btn-demo" href="https://jason9075.github.io/Gaussian-Splatting-Explained/" target="_blank" rel="noopener">Open Demo →</a>
+              </div>
+            </article>
+
+            <article class="card" data-group="3d" data-title="Marching Cubes Explorer" data-desc="An interactive, step-by-step visualizer for the Marching Cubes (3D) and Marching Squares (2D) algorithms, built with vanilla JavaScript and Three.js.">
+              <a class="card-link" href="https://jason9075.github.io/Marching-Cubes-Explorer/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
+              <div class="card-accent accent-3d"></div>
+              <div class="card-body">
+                <h3>Marching Cubes Explorer</h3>
+                <p>An interactive, step-by-step visualizer for the Marching Cubes (3D) and Marching Squares (2D) algorithms, built with vanilla JavaScript and Three.js.</p>
+              </div>
+              <div class="card-footer">
+                <a class="btn-demo" href="https://jason9075.github.io/Marching-Cubes-Explorer/" target="_blank" rel="noopener">Open Demo →</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="group">
+          <header class="group-header">
+            <span class="group-dot dot-vision"></span>
+            <h2>Computer Vision</h2>
+            <span class="group-count">3</span>
+          </header>
+          <div class="grid">
+            <article class="card" data-group="vision" data-title="Camera Projection Explorer" data-desc="Interactive explorer for camera projection matrices. Tweak intrinsics, rotation, and translation and see how 3D points map onto the image plane.">
+              <a class="card-link" href="https://jason9075.github.io/Camera-Projection-Explorer/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
+              <div class="card-accent accent-vision"></div>
+              <div class="card-body">
+                <h3>Camera Projection Explorer</h3>
+                <p>Interactive explorer for camera projection matrices. Tweak intrinsics, rotation, and translation and see how 3D points map onto the image plane.</p>
+              </div>
+              <div class="card-footer">
+                <a class="btn-demo" href="https://jason9075.github.io/Camera-Projection-Explorer/" target="_blank" rel="noopener">Open Demo →</a>
+              </div>
+            </article>
+
+            <article class="card" data-group="vision" data-title="Camera Calibration" data-desc="Interactive demo of Zhang's calibration method. Visualize reprojection error, intrinsic parameters, and lens distortion in real time.">
+              <a class="card-link" href="https://jason9075.github.io/Camera_Calibration/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
+              <div class="card-accent accent-vision"></div>
+              <div class="card-body">
+                <h3>Camera Calibration</h3>
+                <p>Interactive demo of Zhang's calibration method. Visualize reprojection error, intrinsic parameters, and lens distortion in real time.</p>
+              </div>
+              <div class="card-footer">
+                <a class="btn-demo" href="https://jason9075.github.io/Camera_Calibration/" target="_blank" rel="noopener">Open Demo →</a>
+              </div>
+            </article>
+
+            <article class="card" data-group="vision" data-title="RANSAC — the Dating Show" data-desc="Gamified visualization of the RANSAC robust estimation algorithm. Inliers, outliers, and best-fit model explained through an absurd dating metaphor.">
+              <a class="card-link" href="https://jason9075.github.io/RANSAC-the-Dating-Show/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
+              <div class="card-accent accent-vision"></div>
+              <div class="card-body">
+                <h3>RANSAC — the Dating Show</h3>
+                <p>Gamified visualization of the RANSAC robust estimation algorithm. Inliers, outliers, and best-fit model explained through an absurd dating metaphor.</p>
+              </div>
+              <div class="card-footer">
+                <a class="btn-demo" href="https://jason9075.github.io/RANSAC-the-Dating-Show/" target="_blank" rel="noopener">Open Demo →</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="group">
+          <header class="group-header">
+            <span class="group-dot dot-math"></span>
+            <h2>Math</h2>
+            <span class="group-count">2</span>
+          </header>
+          <div class="grid">
+            <article class="card" data-group="math" data-title="TaylorFlow" data-desc="Interactive Taylor series visualizer. Move the expansion center, vary the polynomial degree, and inspect the Lagrange remainder bound live.">
+              <a class="card-link" href="https://jason9075.github.io/TaylorFlow/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
+              <div class="card-accent accent-math"></div>
+              <div class="card-body">
+                <h3>TaylorFlow</h3>
+                <p>Interactive Taylor series visualizer. Move the expansion center, vary the polynomial degree, and inspect the Lagrange remainder bound live.</p>
+              </div>
+              <div class="card-footer">
+                <a class="btn-demo" href="https://jason9075.github.io/TaylorFlow/" target="_blank" rel="noopener">Open Demo →</a>
+              </div>
+            </article>
+
+            <article class="card" data-group="math" data-title="Newton Method Visualizer" data-desc="Animated walkthrough of Newton's root-finding method with tangent-line construction, iteration table, and convergence rate analysis.">
+              <a class="card-link" href="https://jason9075.github.io/Newton-Method-Visualizer/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
+              <div class="card-accent accent-math"></div>
+              <div class="card-body">
+                <h3>Newton Method Visualizer</h3>
+                <p>Animated walkthrough of Newton's root-finding method with tangent-line construction, iteration table, and convergence rate analysis.</p>
+              </div>
+              <div class="card-footer">
+                <a class="btn-demo" href="https://jason9075.github.io/Newton-Method-Visualizer/" target="_blank" rel="noopener">Open Demo →</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+      </div>
     </main>
+
+    <footer>
+      <p>jason9075 · <a href="https://github.com/jason9075" target="_blank" rel="noopener">GitHub</a></p>
+    </footer>
+
+    <script>
+      const searchEl = document.getElementById('search');
+      const escBtn   = document.getElementById('search-esc');
+      const groups   = document.getElementById('groups');
+      const results  = document.getElementById('search-results');
+      const grid     = document.getElementById('results-grid');
+      const label    = document.getElementById('results-label');
+
+      const GROUP_LABELS = { '3d': '3D & Rendering', 'vision': 'Computer Vision', 'math': 'Math' };
+
+      /** Returns indices of query chars found in order within target, or null */
+      function fuzzyMatch(query, target) {
+        const q = query.toLowerCase();
+        const t = target.toLowerCase();
+        const indices = [];
+        let ti = 0;
+        for (let qi = 0; qi < q.length; qi++) {
+          const found = t.indexOf(q[qi], ti);
+          if (found === -1) return null;
+          indices.push(found);
+          ti = found + 1;
+        }
+        return indices;
+      }
+
+      /** Wraps matched characters in <mark> */
+      function highlight(text, indices) {
+        const chars = [...text];
+        const set = new Set(indices);
+        return chars
+          .map((c, i) => set.has(i) ? `<mark>${c}</mark>` : c)
+          .join('');
+      }
+
+      function buildResultCard(article, titleIndices, descIndices) {
+        const title = article.dataset.title;
+        const desc  = article.dataset.desc;
+        const group = article.dataset.group;
+        const demo  = article.querySelector('.btn-demo').href;
+
+        const card = document.createElement('article');
+        card.className = 'card';
+
+        const accent = document.createElement('div');
+        accent.className = `card-accent accent-${group}`;
+        card.appendChild(accent);
+
+        const body = document.createElement('div');
+        body.className = 'card-body';
+        body.innerHTML = `
+          <span class="result-group">${GROUP_LABELS[group]}</span>
+          <h3>${titleIndices ? highlight(title, titleIndices) : title}</h3>
+          <p>${descIndices ? highlight(desc, descIndices) : desc}</p>`;
+        card.appendChild(body);
+
+        const footer = document.createElement('div');
+        footer.className = 'card-footer';
+        footer.innerHTML = `<a class="btn-demo" href="${demo}" target="_blank" rel="noopener">Open Demo →</a>`;
+        card.appendChild(footer);
+
+        return card;
+      }
+
+      function runSearch(query) {
+        const q = query.trim();
+
+        if (!q) {
+          results.classList.add('hidden');
+          groups.classList.remove('hidden');
+          escBtn.classList.remove('visible');
+          return;
+        }
+
+        escBtn.classList.add('visible');
+        groups.classList.add('hidden');
+        results.classList.remove('hidden');
+        grid.innerHTML = '';
+
+        const articles = document.querySelectorAll('#groups .card');
+        const hits = [];
+
+        articles.forEach(article => {
+          const ti = fuzzyMatch(q, article.dataset.title);
+          const di = fuzzyMatch(q, article.dataset.desc);
+          if (ti !== null || di !== null) {
+            hits.push({ article, titleIndices: ti, descIndices: di });
+          }
+        });
+
+        if (hits.length === 0) {
+          label.textContent = `No results for "${q}"`;
+          grid.innerHTML = '<p class="no-results">Try a different keyword.</p>';
+        } else {
+          label.textContent = `${hits.length} result${hits.length > 1 ? 's' : ''} for "${q}"`;
+          hits.forEach(({ article, titleIndices, descIndices }) => {
+            grid.appendChild(buildResultCard(article, titleIndices, descIndices));
+          });
+        }
+      }
+
+      searchEl.addEventListener('input', () => runSearch(searchEl.value));
+
+      escBtn.addEventListener('click', () => {
+        searchEl.value = '';
+        runSearch('');
+        searchEl.focus();
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && searchEl.value) {
+          searchEl.value = '';
+          runSearch('');
+        }
+        if ((e.key === '/' || e.key === 'k') && (e.metaKey || e.ctrlKey || e.key === '/') && document.activeElement !== searchEl) {
+          if (e.key === '/') { e.preventDefault(); searchEl.focus(); }
+        }
+      });
+    </script>
   </body>
 </html>
