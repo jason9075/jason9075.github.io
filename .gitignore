@@ -1,4 +1,5 @@
 # direnv cache
+.codex
 .direnv/
 
 # env / secrets
