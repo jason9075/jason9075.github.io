@@ -63,13 +63,20 @@ header {
   color: var(--n3);
 }
 
+.social-links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .gh-link {
-  color: var(--n3);
+  color: var(--n9);
   display: flex;
   align-items: center;
   transition: color 0.15s;
 }
-.gh-link:hover { color: var(--n8); }
+.gh-link:hover { color: var(--n6); }
 
 .hero h1 {
   font-size: clamp(2rem, 5vw, 3.5rem);
