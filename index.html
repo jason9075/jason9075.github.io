@@ -183,6 +183,14 @@
           href: "https://jason9075.github.io/Gram-Schmidt-Process-Steps/",
           tags: ["linear-algebra", "qr", "tutorial"],
         },
+        {
+          slug: "pbd-flags",
+          group: "3d",
+          title: "PBD Flags",
+          desc: "A small interactive Three.js study project for cloth-like flag motion using a Verlet integrator and PBD-style distance constraints.",
+          href: "https://jason9075.github.io/PBD-Flags/",
+          tags: ["three.js", "simulation", "pbd"],
+        },
       ];
 
       const GROUPS = [
@@ -452,6 +460,31 @@
               <line x1="60" y1="-70" x2="60" y2="-18" stroke="${accent}" stroke-width="0.7" stroke-dasharray="2 3"/>
               <circle cx="0" cy="0" r="2.5" fill="#ECEFF4"/>
             </g>
+          </svg>`;
+        },
+
+        "pbd-flags": (accent) => {
+          const verticals = Array.from({length: 8}, (_, i) => {
+            const x = 58 + i * 28;
+            return `<line x1="${x}" y1="32" x2="${x}" y2="148" stroke="#434C5E" stroke-width="0.8" opacity="0.7"/>`;
+          }).join('');
+          const horizontals = Array.from({length: 6}, (_, i) => {
+            const y = 38 + i * 22;
+            return `<path d="M 58 ${y} C 105 ${y - 4}, 155 ${y + 8}, 205 ${y + 2} S 255 ${y - 8}, 262 ${y - 2}" stroke="#4C566A" stroke-width="0.8" fill="none" opacity="0.75"/>`;
+          }).join('');
+          return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+            <rect width="320" height="180" fill="#2E3440"/>
+            <line x1="52" y1="24" x2="52" y2="154" stroke="#D8DEE9" stroke-width="2"/>
+            <circle cx="52" cy="24" r="3" fill="#D8DEE9"/>
+            ${verticals}
+            ${horizontals}
+            <path d="M 58 38 C 110 24, 162 56, 214 44 S 254 28, 262 34
+                     L 262 140
+                     C 218 148, 166 118, 116 130 S 74 146, 58 140 Z"
+              fill="${accent}" fill-opacity="0.2" stroke="${accent}" stroke-width="1.6"/>
+            ${[[58,38],[86,34],[114,36],[142,46],[170,48],[198,43],[226,37],[254,32],[262,34],[58,60],[86,57],[114,60],[142,68],[170,70],[198,66],[226,59],[254,55],[262,56],[58,82],[86,80],[114,83],[142,90],[170,92],[198,88],[226,82],[254,78],[262,79],[58,104],[86,103],[114,106],[142,112],[170,114],[198,110],[226,104],[254,101],[262,101],[58,126],[86,126],[114,128],[142,133],[170,135],[198,132],[226,127],[254,124],[262,123],[58,140],[86,140],[114,142],[142,146],[170,148],[198,146],[226,142],[254,140],[262,140]].map(([x, y]) =>
+              `<circle cx="${x}" cy="${y}" r="1.8" fill="${accent}" opacity="0.9"/>`
+            ).join('')}
           </svg>`;
         },
       };
