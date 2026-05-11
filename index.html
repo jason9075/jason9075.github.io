@@ -51,7 +51,7 @@
               <span class="search-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
               </span>
-              <input id="search" type="search" placeholder="Search 12 demos…" autocomplete="off" spellcheck="false" />
+              <input id="search" type="search" placeholder="Search demos…" autocomplete="off" spellcheck="false" />
               <span class="search-kbd" id="search-kbd">⌘ K</span>
             </div>
           </div>
@@ -688,6 +688,7 @@
       });
 
       /* ── Initial render ───────────────────────────────────────────────── */
+      searchEl.placeholder = `Search ${DEMOS.length} demos…`;
       render();
     </script>
   </body>
