@@ -193,7 +193,7 @@
         },
         {
           slug: "cpu-scheduling",
-          group: "math",
+          group: "cs",
           title: "CPU Scheduling Animation",
           desc: "Interactive visualizer for nine CPU scheduling algorithms — FCFS, SJF, Round Robin, Priority, and more. Runs entirely client-side with vanilla JS and ES Modules.",
           href: "https://jason9075.github.io/scheduling_animation/",
@@ -205,6 +205,7 @@
         { id: "3d",     label: "3D & Rendering",  color: "#8FBCBB", short: "3D"     },
         { id: "vision", label: "Computer Vision", color: "#B48EAD", short: "Vision" },
         { id: "math",   label: "Math",            color: "#EBCB8B", short: "Math"   },
+        { id: "cs",     label: "CS & Algorithms", color: "#A3BE8C", short: "CS"     },
       ];
 
       /* ── Procedural SVG thumbnails ────────────────────────────────────── */
@@ -468,6 +469,36 @@
               <line x1="60" y1="-70" x2="60" y2="-18" stroke="${accent}" stroke-width="0.7" stroke-dasharray="2 3"/>
               <circle cx="0" cy="0" r="2.5" fill="#ECEFF4"/>
             </g>
+          </svg>`;
+        },
+
+        "cpu-scheduling": (accent) => {
+          const sc = 25, ox = 45, barH = 20;
+          const oy = 152;
+          const vgrid = Array.from({length: 11}, (_, i) =>
+            `<line x1="${ox+i*sc}" y1="22" x2="${ox+i*sc}" y2="${oy}" stroke="#3B4252" stroke-width="1"/>`
+          ).join('');
+          const axis = `<line x1="${ox}" y1="${oy}" x2="${ox+10*sc}" y2="${oy}" stroke="#4C566A" stroke-width="1"/>`;
+          const ticks = Array.from({length: 11}, (_, i) =>
+            `<text x="${ox+i*sc}" y="${oy+12}" text-anchor="middle" font-size="8" fill="#4C566A" font-family="monospace">${i}</text>`
+          ).join('');
+          // Round-Robin-style schedule: P1[0-2,7-9], P2[2-4], P3[4-6,9-10], P4[6-7]
+          const procs = [
+            [28,  [[0,2],[7,9]],  1.0],
+            [58,  [[2,4]],        0.72],
+            [88,  [[4,6],[9,10]], 0.50],
+            [118, [[6,7]],        0.34],
+          ];
+          const bars = procs.map(([y, segs, op], idx) => {
+            const label = `<text x="${ox-5}" y="${y+barH/2+4}" text-anchor="end" font-size="8" fill="#D8DEE9" font-family="monospace">P${idx+1}</text>`;
+            const rects = segs.map(([s, e]) =>
+              `<rect x="${ox+s*sc+1}" y="${y}" width="${(e-s)*sc-2}" height="${barH}" rx="2" fill="${accent}" opacity="${op}"/>`
+            ).join('');
+            return label + rects;
+          }).join('');
+          return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+            <rect width="320" height="180" fill="#2E3440"/>
+            ${vgrid}${axis}${ticks}${bars}
           </svg>`;
         },
 
