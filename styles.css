@@ -336,7 +336,7 @@ button { background: none; border: 0; color: inherit; cursor: pointer; font: inh
 .card-link {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 2;
 }
 
 .card-thumb {
