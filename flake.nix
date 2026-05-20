@@ -14,15 +14,18 @@
         devShells.default = pkgs.mkShell {
           name = "personal-site";
           packages = with pkgs; [
+            nodejs_22
+            bun
             just
-            live-server
             git
           ];
 
           shellHook = ''
-            echo "🌐 personal-site dev shell"
-            echo "  just dev    — start live-server on :8080"
-            echo "  just deploy — commit & push to GitHub Pages"
+            echo "personal-site dev shell"
+            echo "  just install  — install npm deps"
+            echo "  just dev      — start Vite dev server on :8080"
+            echo "  just build    — production build to dist/"
+            echo "  just preview  — preview production build"
           '';
         };
       });

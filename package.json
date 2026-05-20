@@ -1,0 +1,13 @@
+{
+  "name": "jason9075-github-io",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --require ./scripts/fix-noexec.cjs ./node_modules/vite/bin/vite.js --port 8080",
+    "build": "node --require ./scripts/fix-noexec.cjs ./node_modules/vite/bin/vite.js build",
+    "preview": "node --require ./scripts/fix-noexec.cjs ./node_modules/vite/bin/vite.js preview --port 8080"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

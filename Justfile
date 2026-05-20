@@ -3,16 +3,24 @@ set shell := ["bash", "-euo", "pipefail", "-c"]
 default:
     @just --list
 
-# Start live-reload dev server on port 8080
+# Install npm dependencies
+install:
+    npm install --ignore-scripts
+
+# Start Vite dev server on port 8080
 dev:
-    live-server --port=8080 --open=.
+    @[ -d node_modules ] || npm install --ignore-scripts
+    node --require ./scripts/fix-noexec.cjs ./node_modules/vite/bin/vite.js --port 8080
 
-# Validate HTML (requires html-validator-cli in PATH, optional)
-lint:
-    @command -v html-validator >/dev/null 2>&1 && html-validator --file index.html || echo "html-validator not found, skipping"
+# Build for production (output: dist/)
+build:
+    @[ -d node_modules ] || npm install --ignore-scripts
+    node --require ./scripts/fix-noexec.cjs ./node_modules/vite/bin/vite.js build
 
-# Commit all changes and push to GitHub Pages
-deploy message="chore: update site":
-    git add -A
-    git commit -m "{{message}}"
-    git push origin master
+# Preview the production build
+preview: build
+    node --require ./scripts/fix-noexec.cjs ./node_modules/vite/bin/vite.js preview --port 8080
+
+# Remove build artifacts and node_modules
+clean:
+    rm -rf dist node_modules
