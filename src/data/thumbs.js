@@ -320,4 +320,68 @@ export const THUMBS = {
       ${particleDots}
     </svg>`;
   },
+
+  'spherical-harmonic-planet': (accent) => {
+    const longitudes = Array.from({length: 9}, (_, i) => {
+      const x = 160 + (i - 4) * 15;
+      const rx = Math.max(6, 62 - Math.abs(i - 4) * 10);
+      return `<ellipse cx="${x}" cy="92" rx="${rx}" ry="66" fill="none" stroke="#4C566A" stroke-width="0.7" opacity="0.42"/>`;
+    }).join('');
+    const latitudes = [-48, -28, -10, 10, 28, 48].map((y, i) => {
+      const rx = 86 * Math.cos((Math.abs(y) / 60) * Math.PI / 2);
+      return `<ellipse cx="160" cy="${92 + y}" rx="${rx.toFixed(1)}" ry="${(rx * 0.25).toFixed(1)}" fill="none" stroke="#4C566A" stroke-width="0.75" opacity="${i === 2 || i === 3 ? 0.55 : 0.34}"/>`;
+    }).join('');
+    const bands = [
+      [80, 128, 30, 8, 0.22],
+      [106, 88, 42, 11, 0.32],
+      [152, 58, 36, 9, 0.44],
+      [186, 110, 52, 13, 0.36],
+      [224, 76, 34, 8, 0.26],
+    ].map(([x, y, rx, ry, op]) =>
+      `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="${accent}" opacity="${op}" transform="rotate(-18 ${x} ${y})"/>`
+    ).join('');
+    const samples = [
+      [102,56],[128,41],[171,34],[209,47],[232,82],[220,120],[184,145],
+      [140,146],[99,126],[82,91],[118,76],[151,100],[190,82],[166,122],
+    ].map(([x, y], i) =>
+      `<circle cx="${x}" cy="${y}" r="${i % 3 === 0 ? 2.2 : 1.6}" fill="${i % 2 ? '#ECEFF4' : accent}" opacity="${i % 2 ? 0.65 : 0.9}"/>`
+    ).join('');
+    const spectrum = Array.from({length: 8}, (_, i) => {
+      const h = [15, 28, 42, 31, 23, 17, 11, 7][i];
+      return `<rect x="${246 + i * 7}" y="${140 - h}" width="4" height="${h}" fill="${accent}" opacity="${Math.max(0.25, 0.95 - i * 0.09).toFixed(2)}"/>`;
+    }).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <defs>
+        <radialGradient id="shPlanetBody" cx="42%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="#D8DEE9"/>
+          <stop offset="38%" stop-color="${accent}"/>
+          <stop offset="100%" stop-color="#2E3440"/>
+        </radialGradient>
+        <clipPath id="shPlanetClip">
+          <circle cx="160" cy="92" r="70"/>
+        </clipPath>
+      </defs>
+      <rect width="320" height="180" fill="#2E3440"/>
+      <g opacity="0.45" stroke="#434C5E" stroke-width="0.7">
+        <path d="M 36 146 C 75 126, 108 126, 145 146 S 222 166, 284 132" fill="none"/>
+        <path d="M 38 120 C 78 100, 116 106, 156 123 S 229 136, 282 104" fill="none" opacity="0.55"/>
+      </g>
+      <circle cx="160" cy="92" r="70" fill="url(#shPlanetBody)"/>
+      <g clip-path="url(#shPlanetClip)">
+        ${bands}
+        ${longitudes}
+        ${latitudes}
+        <path d="M 75 100 C 103 73, 126 84, 153 62 S 203 54, 238 77" stroke="${accent}" stroke-width="2" fill="none" opacity="0.9"/>
+        <path d="M 87 124 C 126 116, 144 135, 184 119 S 220 99, 237 120" stroke="#ECEFF4" stroke-width="1.1" fill="none" opacity="0.48"/>
+      </g>
+      <circle cx="160" cy="92" r="70" fill="none" stroke="${accent}" stroke-width="1.4" opacity="0.9"/>
+      ${samples}
+      <g font-family="JetBrains Mono, monospace" font-size="8" fill="#D8DEE9" opacity="0.78">
+        <text x="238" y="35">l=0</text>
+        <text x="267" y="35">12</text>
+      </g>
+      <line x1="246" y1="140" x2="304" y2="140" stroke="#4C566A" stroke-width="1"/>
+      ${spectrum}
+    </svg>`;
+  },
 };

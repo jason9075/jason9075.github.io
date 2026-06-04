@@ -104,6 +104,14 @@ export const DEMOS = [
     tags: ['three.js', 'simulation', 'pbd'],
   },
   {
+    slug: 'spherical-harmonic-planet',
+    group: '3d',
+    title: 'Spherical Harmonic Planet',
+    desc: 'Interactive Three.js visualization of how noisy planetary terrain is reconstructed by progressive spherical-harmonic projection.',
+    href: 'https://jason9075.github.io/Spherical-Harmonic-Planet/',
+    tags: ['three.js', 'spherical-harmonics', 'terrain'],
+  },
+  {
     slug: 'cpu-scheduling',
     group: 'cs',
     title: 'CPU Scheduling Animation',
