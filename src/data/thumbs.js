@@ -384,4 +384,62 @@ export const THUMBS = {
       ${spectrum}
     </svg>`;
   },
+
+  'flame-shaper': (accent) => {
+    const meshLines = [
+      [118,42,154,36],[154,36,194,44],[118,42,98,74],[194,44,216,76],
+      [98,74,116,116],[216,76,194,118],[116,116,154,142],[194,118,154,142],
+      [118,42,132,80],[154,36,154,82],[194,44,176,82],
+      [132,80,154,82],[154,82,176,82],[132,80,118,108],[176,82,192,110],
+      [118,108,154,122],[192,110,154,122],[154,82,154,122],
+      [114,72,132,80],[196,74,176,82],[126,98,154,92],[182,98,154,92],
+      [134,126,154,122],[174,126,154,122],
+    ].map(([x1, y1, x2, y2]) =>
+      `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`
+    ).join('');
+    const verts = [
+      [118,42],[154,36],[194,44],[98,74],[216,76],[132,80],[154,82],
+      [176,82],[118,108],[192,110],[154,92],[154,122],[116,116],
+      [194,118],[154,142],[114,72],[196,74],[126,98],[182,98],[134,126],[174,126],
+    ].map(([x, y], i) =>
+      `<circle cx="${x}" cy="${y}" r="${i === 10 || i === 11 ? 2.6 : 1.7}" fill="${i % 4 === 0 ? accent : '#D8DEE9'}" opacity="${i % 4 === 0 ? 0.95 : 0.62}"/>`
+    ).join('');
+    const handles = [[98,74],[154,36],[216,76],[154,142]].map(([x, y]) =>
+      `<circle cx="${x}" cy="${y}" r="7" fill="none" stroke="${accent}" stroke-width="1" stroke-dasharray="2 3" opacity="0.75"/>`
+    ).join('');
+    const sliders = [
+      [36,56,50,0.9],
+      [36,82,32,0.58],
+      [36,108,62,0.72],
+      [36,134,42,0.44],
+    ].map(([x, y, w, op], i) =>
+      `<g opacity="${op}">
+        <line x1="${x}" y1="${y}" x2="${x + 74}" y2="${y}" stroke="#4C566A" stroke-width="2"/>
+        <line x1="${x}" y1="${y}" x2="${x + w}" y2="${y}" stroke="${accent}" stroke-width="2"/>
+        <circle cx="${x + w}" cy="${y}" r="4" fill="${accent}"/>
+        <text x="${x}" y="${y - 8}" fill="#D8DEE9" font-size="7" font-family="JetBrains Mono, monospace">b${i + 1}</text>
+      </g>`
+    ).join('');
+    const objRows = ['v 0012', 'v 1284', 'v 5023', 'f ...'].map((txt, i) =>
+      `<text x="238" y="${58 + i * 18}" fill="${i === 2 ? accent : '#D8DEE9'}" font-size="9" font-family="JetBrains Mono, monospace" opacity="${i === 2 ? 0.95 : 0.64}">${txt}</text>`
+    ).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      <rect x="24" y="34" width="92" height="116" rx="4" fill="#3B4252" stroke="#4C566A"/>
+      ${sliders}
+      <g fill="none" stroke="#4C566A" stroke-width="1">
+        <path d="M 154 34 C 116 36, 92 64, 94 94 C 96 128, 126 148, 154 150 C 184 148, 214 130, 218 96 C 222 64, 194 38, 154 34 Z" fill="#3B4252" opacity="0.52"/>
+        ${meshLines}
+      </g>
+      <path d="M 126 98 C 140 104, 168 104, 182 98" stroke="${accent}" stroke-width="1.5" fill="none" opacity="0.85"/>
+      <path d="M 154 82 L 148 108 L 160 108 Z" fill="${accent}" opacity="0.22" stroke="${accent}" stroke-width="1"/>
+      ${handles}
+      ${verts}
+      <rect x="230" y="34" width="66" height="116" rx="4" fill="#3B4252" stroke="#4C566A"/>
+      <text x="238" y="46" fill="${accent}" font-size="8" font-family="JetBrains Mono, monospace">OBJ IDs</text>
+      ${objRows}
+      <path d="M 238 130 H 288" stroke="${accent}" stroke-width="1.2"/>
+      <path d="M 282 125 L 288 130 L 282 135" stroke="${accent}" stroke-width="1.2" fill="none"/>
+    </svg>`;
+  },
 };

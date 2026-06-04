@@ -112,6 +112,14 @@ export const DEMOS = [
     tags: ['three.js', 'spherical-harmonics', 'terrain'],
   },
   {
+    slug: 'flame-shaper',
+    group: '3d',
+    title: 'FLAME Shaper',
+    desc: 'Browser-based fine-tuning tool for FLAME-topology 3D face meshes. Load an .obj, sculpt with statistical and local controls, then export with vertex IDs preserved.',
+    href: 'https://jason9075.github.io/FLAME-Shaper/',
+    tags: ['three.js', 'face-mesh', 'obj'],
+  },
+  {
     slug: 'cpu-scheduling',
     group: 'cs',
     title: 'CPU Scheduling Animation',
