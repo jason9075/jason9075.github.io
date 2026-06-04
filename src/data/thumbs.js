@@ -442,4 +442,58 @@ export const THUMBS = {
       <path d="M 282 125 L 288 130 L 282 135" stroke="${accent}" stroke-width="1.2" fill="none"/>
     </svg>`;
   },
+
+  'meat-mesh': (accent) => {
+    const grid = [
+      [93,58],[121,48],[151,46],[181,52],[207,69],
+      [82,86],[113,80],[146,76],[179,82],[217,96],
+      [90,115],[120,114],[151,108],[185,118],[208,132],
+      [113,143],[145,138],[175,146],
+    ];
+    const edges = [
+      [0,1],[1,2],[2,3],[3,4],[5,6],[6,7],[7,8],[8,9],[10,11],[11,12],[12,13],[13,14],[15,16],[16,17],
+      [0,5],[5,10],[1,6],[6,11],[11,15],[2,7],[7,12],[12,16],[3,8],[8,13],[13,17],[4,9],[9,14],
+      [0,6],[1,7],[2,8],[3,9],[5,11],[6,12],[7,13],[8,14],[10,15],[11,16],[12,17],
+    ].map(([a, b], i) => {
+      const [x1, y1] = grid[a];
+      const [x2, y2] = grid[b];
+      return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" opacity="${i % 5 === 0 ? 0.72 : 0.42}"/>`;
+    }).join('');
+    const nodes = grid.map(([x, y], i) =>
+      `<circle cx="${x}" cy="${y}" r="${i === 7 || i === 12 ? 3.1 : 2}" fill="${i % 4 === 0 ? accent : '#D8DEE9'}" opacity="${i % 4 === 0 ? 0.95 : 0.7}"/>`
+    ).join('');
+    const pins = [[93,58],[207,69],[113,143],[175,146]].map(([x, y]) =>
+      `<circle cx="${x}" cy="${y}" r="7" fill="none" stroke="${accent}" stroke-width="1" stroke-dasharray="2 3" opacity="0.7"/>`
+    ).join('');
+    const traces = [0, 1, 2, 3].map((_, i) => {
+      const y = 48 + i * 24;
+      return `<path d="M 238 ${y} C 252 ${y - 12}, 266 ${y + 12}, 284 ${y}" stroke="${accent}" stroke-width="1.1" fill="none" opacity="${(0.85 - i * 0.14).toFixed(2)}"/>`;
+    }).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <defs>
+        <radialGradient id="meatBody" cx="42%" cy="35%" r="70%">
+          <stop offset="0%" stop-color="#D8DEE9"/>
+          <stop offset="45%" stop-color="${accent}"/>
+          <stop offset="100%" stop-color="#3B4252"/>
+        </radialGradient>
+      </defs>
+      <rect width="320" height="180" fill="#2E3440"/>
+      <path d="M 86 61 C 111 30, 175 32, 210 62 C 238 86, 222 130, 188 151 C 153 172, 98 151, 82 121 C 69 96, 66 77, 86 61 Z"
+        fill="url(#meatBody)" opacity="0.58"/>
+      <g stroke="#4C566A" stroke-width="1" fill="none">
+        ${edges}
+      </g>
+      <path d="M 74 130 C 111 108, 132 124, 158 102 S 199 94, 224 113" stroke="${accent}" stroke-width="1.8" fill="none" opacity="0.82"/>
+      <path d="M 82 72 C 112 88, 144 62, 179 81 S 209 104, 225 88" stroke="#ECEFF4" stroke-width="1" fill="none" opacity="0.42"/>
+      ${pins}
+      ${nodes}
+      <g font-family="JetBrains Mono, monospace" font-size="8" fill="#D8DEE9" opacity="0.74">
+        <text x="238" y="30">PBD</text>
+        <text x="238" y="150">60 fps</text>
+      </g>
+      ${traces}
+      <line x1="238" y1="132" x2="288" y2="132" stroke="#4C566A" stroke-width="1"/>
+      <circle cx="272" cy="132" r="4" fill="${accent}"/>
+    </svg>`;
+  },
 };

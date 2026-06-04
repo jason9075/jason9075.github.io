@@ -120,6 +120,14 @@ export const DEMOS = [
     tags: ['three.js', 'face-mesh', 'obj'],
   },
   {
+    slug: 'meat-mesh',
+    group: '3d',
+    title: 'Meat Mesh',
+    desc: 'Real-time soft-body deformation demo built with Three.js and a simplified Position Based Dynamics solver.',
+    href: 'https://github.com/jason9075/Meat-Mesh',
+    tags: ['three.js', 'soft-body', 'pbd'],
+  },
+  {
     slug: 'cpu-scheduling',
     group: 'cs',
     title: 'CPU Scheduling Animation',
