@@ -443,6 +443,36 @@ export const THUMBS = {
     </svg>`;
   },
 
+  'kd-and-qt': (accent) => {
+    const kdDots = [[30,50],[62,82],[45,130],[90,38],[120,100],[110,150],[75,112]].map(([x,y]) =>
+      `<circle cx="${x}" cy="${y}" r="2.5" fill="${accent}"/>`
+    ).join('');
+    const qtDots = [[185,43],[212,70],[176,110],[228,130],[262,52],[287,85],[272,146],[252,102]].map(([x,y]) =>
+      `<circle cx="${x}" cy="${y}" r="2.5" fill="${accent}"/>`
+    ).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      <text x="78" y="14" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#D8DEE9">KD-Tree</text>
+      <text x="242" y="14" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#D8DEE9">Quadtree</text>
+      <line x1="160" y1="0" x2="160" y2="180" stroke="#4C566A" stroke-width="1" stroke-dasharray="4 3"/>
+      <rect x="8" y="20" width="144" height="152" fill="none" stroke="#4C566A" stroke-width="0.8"/>
+      <line x1="80" y1="20" x2="80" y2="172" stroke="${accent}" stroke-width="1.4"/>
+      <line x1="8" y1="70" x2="80" y2="70" stroke="${accent}" stroke-width="1" opacity="0.72"/>
+      <line x1="80" y1="122" x2="152" y2="122" stroke="${accent}" stroke-width="1" opacity="0.72"/>
+      <line x1="44" y1="20" x2="44" y2="70" stroke="${accent}" stroke-width="0.8" opacity="0.45"/>
+      <line x1="116" y1="122" x2="116" y2="172" stroke="${accent}" stroke-width="0.8" opacity="0.45"/>
+      ${kdDots}
+      <rect x="168" y="20" width="144" height="152" fill="none" stroke="#4C566A" stroke-width="0.8"/>
+      <line x1="240" y1="20" x2="240" y2="172" stroke="${accent}" stroke-width="1.4"/>
+      <line x1="168" y1="96" x2="312" y2="96" stroke="${accent}" stroke-width="1.4"/>
+      <line x1="204" y1="20" x2="204" y2="96" stroke="${accent}" stroke-width="1" opacity="0.72"/>
+      <line x1="168" y1="58" x2="240" y2="58" stroke="${accent}" stroke-width="1" opacity="0.72"/>
+      <line x1="276" y1="96" x2="276" y2="172" stroke="${accent}" stroke-width="1" opacity="0.72"/>
+      <line x1="240" y1="134" x2="312" y2="134" stroke="${accent}" stroke-width="1" opacity="0.72"/>
+      ${qtDots}
+    </svg>`;
+  },
+
   'meat-mesh': (accent) => {
     const grid = [
       [93,58],[121,48],[151,46],[181,52],[207,69],

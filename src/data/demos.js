@@ -135,6 +135,14 @@ export const DEMOS = [
     href: 'https://jason9075.github.io/scheduling_animation/',
     tags: ['algorithm', 'os', 'scheduling'],
   },
+  {
+    slug: 'kd-and-qt',
+    group: 'cs',
+    title: 'KD-Tree & Quadtree Visualizer',
+    desc: 'An interactive side-by-side visualizer comparing two classic 2D spatial partitioning structures: KD-Tree and Quadtree.',
+    href: 'https://jason9075.github.io/KD-and-QT/',
+    tags: ['kd-tree', 'quadtree', 'spatial', 'canvas'],
+  },
 ];
 
 export const GROUPS = [
