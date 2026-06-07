@@ -473,6 +473,58 @@ export const THUMBS = {
     </svg>`;
   },
 
+  'pbr-pipeline': (accent) => {
+    const dispStripes = [0, 1, 2, 3, 4].map(i => {
+      const y = 124 + i * 8;
+      const op = i % 2 === 0 ? 0.72 : 0.14;
+      return `<rect x="79" y="${y}" width="67" height="8" fill="#D8DEE9" opacity="${op}"/>`;
+    }).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <defs>
+        <radialGradient id="pbr_sp" cx="35%" cy="28%" r="65%">
+          <stop offset="0%" stop-color="#ECEFF4"/>
+          <stop offset="35%" stop-color="${accent}"/>
+          <stop offset="100%" stop-color="#2E3440"/>
+        </radialGradient>
+        <radialGradient id="pbr_ao">
+          <stop offset="0%" stop-color="#D8DEE9"/>
+          <stop offset="100%" stop-color="#2E3440"/>
+        </radialGradient>
+        <linearGradient id="pbr_rgh" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#2E3440"/>
+          <stop offset="100%" stop-color="#ECEFF4"/>
+        </linearGradient>
+      </defs>
+      <rect width="320" height="180" fill="#2E3440"/>
+      <text x="8" y="20" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Albedo</text>
+      <rect x="8" y="22" width="67" height="44" rx="2" fill="#7A4D30"/>
+      <rect x="8" y="22" width="34" height="22" fill="#9A6040" opacity="0.75"/>
+      <rect x="41" y="44" width="34" height="22" fill="#3D2010" opacity="0.75"/>
+      <text x="79" y="20" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Normal</text>
+      <rect x="79" y="22" width="67" height="44" rx="2" fill="#5E7AAC"/>
+      <line x1="94" y1="46" x2="100" y2="35" stroke="#ECEFF4" stroke-width="1.3" opacity="0.9"/>
+      <line x1="113" y1="42" x2="120" y2="30" stroke="#ECEFF4" stroke-width="1.3" opacity="0.9"/>
+      <line x1="133" y1="48" x2="137" y2="37" stroke="#ECEFF4" stroke-width="1.3" opacity="0.9"/>
+      <text x="8" y="70" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Rough</text>
+      <rect x="8" y="72" width="67" height="44" rx="2" fill="url(#pbr_rgh)"/>
+      <text x="79" y="70" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Metal</text>
+      <rect x="79" y="72" width="67" height="44" rx="2" fill="#1C1F26"/>
+      <ellipse cx="133" cy="89" rx="13" ry="8" fill="#ECEFF4" opacity="0.82"/>
+      <ellipse cx="97" cy="103" rx="5" ry="3" fill="#D8DEE9" opacity="0.28"/>
+      <text x="8" y="120" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">AO</text>
+      <rect x="8" y="122" width="67" height="44" rx="2" fill="#2E3440"/>
+      <ellipse cx="41" cy="144" rx="28" ry="18" fill="url(#pbr_ao)"/>
+      <text x="79" y="120" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Displ</text>
+      <rect x="79" y="122" width="67" height="44" rx="2" fill="#2E3440"/>
+      ${dispStripes}
+      <line x1="153" y1="90" x2="168" y2="90" stroke="${accent}" stroke-width="1.5"/>
+      <path d="M 165 86 L 170 90 L 165 94" stroke="${accent}" stroke-width="1.5" fill="none"/>
+      <circle cx="242" cy="90" r="66" fill="url(#pbr_sp)"/>
+      <ellipse cx="222" cy="66" rx="14" ry="9" fill="#ECEFF4" opacity="0.5"/>
+      <circle cx="242" cy="90" r="66" fill="none" stroke="${accent}" stroke-width="1" opacity="0.4"/>
+    </svg>`;
+  },
+
   'meat-mesh': (accent) => {
     const grid = [
       [93,58],[121,48],[151,46],[181,52],[207,69],

@@ -128,6 +128,14 @@ export const DEMOS = [
     tags: ['three.js', 'soft-body', 'pbd'],
   },
   {
+    slug: 'pbr-pipeline',
+    group: '3d',
+    title: 'PBR Pipeline Explorer',
+    desc: 'An interactive, browser-based tool for exploring the Physically Based Rendering (PBR) texture pipeline. Inspect how each texture channel (Albedo, Normal, Roughness, Metalness, AO, Displacement) contributes to the final shaded result — in real time, with live controls.',
+    href: 'https://jason9075.github.io/PBR-Pipeline/',
+    tags: ['three.js', 'pbr', 'rendering', 'textures'],
+  },
+  {
     slug: 'cpu-scheduling',
     group: 'cs',
     title: 'CPU Scheduling Animation',
