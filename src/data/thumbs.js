@@ -561,45 +561,38 @@ export const THUMBS = {
       </g>
       <text x="114" y="47" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Sphere</text>
 
-      <!-- Disk: flat ellipse (face-on) + perpendicular upward rays -->
-      <ellipse cx="38" cy="100" rx="14" ry="5" fill="${accent}" fill-opacity="0.2" stroke="${accent}" stroke-width="1"/>
-      <g stroke="${accent}" stroke-width="0.9" opacity="0.78">
-        <line x1="38" y1="95" x2="38" y2="74"/>
-        <line x1="28" y1="97" x2="20" y2="78"/>
-        <line x1="48" y1="97" x2="56" y2="78"/>
-      </g>
-      <text x="38" y="115" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Disk</text>
-
       <!-- Rect: rectangle emitter + downward rays -->
-      <rect x="98" y="73" width="32" height="18" rx="1" fill="${accent}" fill-opacity="0.16" stroke="${accent}" stroke-width="0.95"/>
+      <rect x="22" y="73" width="32" height="18" rx="1" fill="${accent}" fill-opacity="0.16" stroke="${accent}" stroke-width="0.95"/>
       <g stroke="${accent}" stroke-width="0.85" opacity="0.68">
-        <line x1="101" y1="91" x2="97" y2="104"/><line x1="109" y1="91" x2="108" y2="107"/>
-        <line x1="119" y1="91" x2="120" y2="107"/><line x1="127" y1="91" x2="131" y2="104"/>
+        <line x1="25" y1="91" x2="21" y2="104"/>
+        <line x1="33" y1="91" x2="32" y2="107"/>
+        <line x1="43" y1="91" x2="44" y2="107"/>
+        <line x1="51" y1="91" x2="55" y2="104"/>
       </g>
-      <text x="114" y="115" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Rect</text>
+      <text x="38" y="115" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Rect</text>
 
       <!-- Cylinder: cylinder outline + lateral rays -->
-      <ellipse cx="38" cy="133" rx="12" ry="4" fill="${accent}" fill-opacity="0.15" stroke="${accent}" stroke-width="1"/>
-      <line x1="26" y1="133" x2="26" y2="153" stroke="${accent}" stroke-width="1"/>
-      <line x1="50" y1="133" x2="50" y2="153" stroke="${accent}" stroke-width="1"/>
-      <path d="M 26 153 A 12 4 0 0 0 50 153" stroke="${accent}" stroke-width="0.85" fill="none" opacity="0.5"/>
+      <ellipse cx="114" cy="74" rx="12" ry="4" fill="${accent}" fill-opacity="0.15" stroke="${accent}" stroke-width="1"/>
+      <line x1="102" y1="74" x2="102" y2="94" stroke="${accent}" stroke-width="1"/>
+      <line x1="126" y1="74" x2="126" y2="94" stroke="${accent}" stroke-width="1"/>
+      <path d="M 102 94 A 12 4 0 0 0 126 94" stroke="${accent}" stroke-width="0.85" fill="none" opacity="0.5"/>
       <g stroke="${accent}" stroke-width="0.85" opacity="0.72">
-        <line x1="26" y1="140" x2="17" y2="136"/>
-        <line x1="26" y1="149" x2="17" y2="149"/>
-        <line x1="50" y1="140" x2="59" y2="136"/>
-        <line x1="50" y1="149" x2="59" y2="149"/>
+        <line x1="102" y1="81" x2="93" y2="77"/>
+        <line x1="102" y1="90" x2="93" y2="90"/>
+        <line x1="126" y1="81" x2="135" y2="77"/>
+        <line x1="126" y1="90" x2="135" y2="90"/>
       </g>
-      <text x="38" y="170" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Cylinder</text>
+      <text x="114" y="115" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Cylinder</text>
 
-      <!-- Dome: half-sphere arc + upward rays -->
-      <path d="M 96 156 A 18 18 0 0 1 132 156" fill="${accent}" fill-opacity="0.15" stroke="${accent}" stroke-width="1"/>
-      <line x1="94" y1="156" x2="134" y2="156" stroke="${accent}" stroke-width="1"/>
+      <!-- Dome: half-sphere arc centered at bottom + upward rays -->
+      <path d="M 58 158 A 18 18 0 0 1 94 158" fill="${accent}" fill-opacity="0.15" stroke="${accent}" stroke-width="1"/>
+      <line x1="56" y1="158" x2="96" y2="158" stroke="${accent}" stroke-width="1"/>
       <g stroke="${accent}" stroke-width="0.85" opacity="0.68">
-        <line x1="114" y1="138" x2="114" y2="130"/>
-        <line x1="103" y1="143" x2="97" y2="135"/>
-        <line x1="125" y1="143" x2="131" y2="135"/>
+        <line x1="76" y1="140" x2="76" y2="132"/>
+        <line x1="65" y1="145" x2="59" y2="137"/>
+        <line x1="87" y1="145" x2="93" y2="137"/>
       </g>
-      <text x="114" y="170" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Dome</text>
+      <text x="76" y="172" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Dome</text>
 
       <circle cx="182" cy="28" r="5" fill="${accent}" opacity="0.88"/>
       <g stroke="${accent}" stroke-width="0.9" opacity="0.58">
