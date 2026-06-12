@@ -151,6 +151,14 @@ export const DEMOS = [
     href: 'https://jason9075.github.io/KD-and-QT/',
     tags: ['kd-tree', 'quadtree', 'spatial', 'canvas'],
   },
+  {
+    slug: 'penumbra',
+    group: '3d',
+    title: 'Penumbra',
+    desc: 'Interactive reference for the six fundamental light source types in 3D rendering — live Three.js scenes, adjustable parameters, anatomy diagrams, and physics explanations for each.',
+    href: 'https://jason9075.github.io/Penumbra/',
+    tags: ['three.js', 'lighting', 'rendering'],
+  },
 ];
 
 export const GROUPS = [

@@ -525,6 +525,78 @@ export const THUMBS = {
     </svg>`;
   },
 
+  'penumbra': (accent) => {
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <defs>
+        <radialGradient id="pnSph" cx="34%" cy="28%" r="66%">
+          <stop offset="0%" stop-color="#ECEFF4"/>
+          <stop offset="24%" stop-color="${accent}"/>
+          <stop offset="68%" stop-color="#2E3440"/>
+          <stop offset="100%" stop-color="#1B2030"/>
+        </radialGradient>
+      </defs>
+      <rect width="320" height="180" fill="#2E3440"/>
+      <line x1="152" y1="0" x2="152" y2="180" stroke="#3B4252" stroke-width="1"/>
+
+      <g stroke="${accent}" stroke-width="1.1" opacity="0.88">
+        <line x1="26" y1="12" x2="26" y2="33"/>
+        <line x1="38" y1="10" x2="38" y2="31"/>
+        <line x1="50" y1="12" x2="50" y2="33"/>
+        <line x1="22" y1="35" x2="54" y2="35"/>
+      </g>
+      <text x="38" y="47" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Direct</text>
+
+      <circle cx="114" cy="26" r="3.2" fill="${accent}"/>
+      <g stroke="${accent}" stroke-width="0.9" opacity="0.78">
+        <line x1="114" y1="11" x2="114" y2="16"/><line x1="114" y1="36" x2="114" y2="41"/>
+        <line x1="99" y1="26" x2="104" y2="26"/><line x1="124" y1="26" x2="129" y2="26"/>
+        <line x1="103" y1="15" x2="107" y2="19"/><line x1="121" y1="33" x2="125" y2="37"/>
+        <line x1="125" y1="15" x2="121" y2="19"/><line x1="107" y1="33" x2="103" y2="37"/>
+      </g>
+      <text x="114" y="47" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Point</text>
+
+      <circle cx="38" cy="69" r="2.5" fill="${accent}"/>
+      <path d="M 22 107 L 38 69 L 54 107 Z" fill="${accent}" fill-opacity="0.16" stroke="${accent}" stroke-width="1"/>
+      <line x1="20" y1="107" x2="56" y2="107" stroke="${accent}" stroke-width="1"/>
+      <text x="38" y="119" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Spot</text>
+
+      <rect x="98" y="73" width="32" height="18" rx="1" fill="${accent}" fill-opacity="0.16" stroke="${accent}" stroke-width="0.95"/>
+      <g stroke="${accent}" stroke-width="0.85" opacity="0.68">
+        <line x1="101" y1="91" x2="97" y2="104"/><line x1="109" y1="91" x2="108" y2="107"/>
+        <line x1="119" y1="91" x2="120" y2="107"/><line x1="127" y1="91" x2="131" y2="104"/>
+      </g>
+      <text x="114" y="119" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Area</text>
+
+      <path d="M 20 156 A 18 18 0 0 1 56 156" fill="${accent}" fill-opacity="0.15" stroke="${accent}" stroke-width="1"/>
+      <line x1="18" y1="156" x2="58" y2="156" stroke="${accent}" stroke-width="1"/>
+      <g stroke="${accent}" stroke-width="0.85" opacity="0.68">
+        <line x1="38" y1="138" x2="38" y2="130"/>
+        <line x1="27" y1="143" x2="21" y2="135"/>
+        <line x1="49" y1="143" x2="55" y2="135"/>
+      </g>
+      <text x="38" y="170" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Hemi</text>
+
+      <circle cx="114" cy="148" r="18" fill="${accent}" fill-opacity="0.05"/>
+      <circle cx="114" cy="148" r="12" fill="${accent}" fill-opacity="0.1"/>
+      <circle cx="114" cy="148" r="7" fill="${accent}" fill-opacity="0.22"/>
+      <circle cx="114" cy="148" r="3.5" fill="${accent}" opacity="0.72"/>
+      <text x="114" y="170" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">Ambient</text>
+
+      <circle cx="182" cy="28" r="5" fill="${accent}" opacity="0.88"/>
+      <g stroke="${accent}" stroke-width="0.9" opacity="0.58">
+        <line x1="182" y1="15" x2="182" y2="20"/><line x1="195" y1="28" x2="200" y2="28"/>
+        <line x1="191" y1="19" x2="195" y2="15"/><line x1="169" y1="28" x2="164" y2="28"/>
+        <line x1="173" y1="19" x2="169" y2="15"/>
+      </g>
+
+      <ellipse cx="252" cy="152" rx="44" ry="13" fill="#1A1F2A" opacity="0.92"/>
+      <ellipse cx="249" cy="150" rx="28" ry="8" fill="#131820" opacity="0.78"/>
+
+      <circle cx="238" cy="88" r="52" fill="url(#pnSph)"/>
+      <ellipse cx="220" cy="70" rx="9" ry="6" fill="#ECEFF4" opacity="0.35" transform="rotate(-22 220 70)"/>
+    </svg>`;
+  },
+
   'meat-mesh': (accent) => {
     const grid = [
       [93,58],[121,48],[151,46],[181,52],[207,69],
