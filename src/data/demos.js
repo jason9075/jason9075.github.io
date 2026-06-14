@@ -159,6 +159,14 @@ export const DEMOS = [
     href: 'https://jason9075.github.io/Penumbra/',
     tags: ['three.js', 'lighting', 'rendering'],
   },
+  {
+    slug: 'dtm-visualizer',
+    group: '3d',
+    title: 'DTM Visualizer',
+    desc: 'Interactive 3D terrain viewer for the Taipei metropolitan area, rendered from government LiDAR tiles. Features LOD switching, frustum culling, a TWD97 coordinate grid overlay, administrative boundary lines, and a road network overlay.',
+    href: 'https://jason9075.github.io/DTM-Visualizer/',
+    tags: ['three.js', 'lidar', 'terrain', 'gis'],
+  },
 ];
 
 export const GROUPS = [

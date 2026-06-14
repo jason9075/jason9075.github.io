@@ -609,6 +609,43 @@ export const THUMBS = {
     </svg>`;
   },
 
+  'dtm-visualizer': (accent) => {
+    const gridH = Array.from({length: 7}, (_, i) =>
+      `<line x1="20" y1="${28 + i * 22}" x2="300" y2="${28 + i * 22}" stroke="#3B4252" stroke-width="0.6"/>`
+    ).join('');
+    const gridV = Array.from({length: 7}, (_, i) =>
+      `<line x1="${44 + i * 38}" y1="14" x2="${44 + i * 38}" y2="166" stroke="#3B4252" stroke-width="0.6"/>`
+    ).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      <g opacity="0.5">${gridH}${gridV}</g>
+      <ellipse cx="148" cy="95" rx="118" ry="68" fill="none" stroke="${accent}" stroke-width="0.8" opacity="0.16" transform="rotate(-6 148 95)"/>
+      <ellipse cx="148" cy="95" rx="92" ry="53" fill="none" stroke="${accent}" stroke-width="0.9" opacity="0.26" transform="rotate(-6 148 95)"/>
+      <ellipse cx="148" cy="95" rx="68" ry="38" fill="none" stroke="${accent}" stroke-width="1.0" opacity="0.38" transform="rotate(-6 148 95)"/>
+      <ellipse cx="148" cy="95" rx="46" ry="26" fill="none" stroke="${accent}" stroke-width="1.2" opacity="0.54" transform="rotate(-6 148 95)"/>
+      <ellipse cx="148" cy="95" rx="26" ry="15" fill="none" stroke="${accent}" stroke-width="1.4" opacity="0.72" transform="rotate(-6 148 95)"/>
+      <ellipse cx="148" cy="95" rx="11" ry="7" fill="none" stroke="${accent}" stroke-width="1.6" opacity="0.88" transform="rotate(-6 148 95)"/>
+      <circle cx="148" cy="95" r="3" fill="${accent}"/>
+      <ellipse cx="248" cy="44" rx="38" ry="24" fill="none" stroke="${accent}" stroke-width="0.8" opacity="0.22" transform="rotate(8 248 44)"/>
+      <ellipse cx="248" cy="44" rx="22" ry="15" fill="none" stroke="${accent}" stroke-width="1.0" opacity="0.40" transform="rotate(8 248 44)"/>
+      <ellipse cx="248" cy="44" rx="10" ry="7" fill="none" stroke="${accent}" stroke-width="1.3" opacity="0.62" transform="rotate(8 248 44)"/>
+      <circle cx="248" cy="44" r="2" fill="${accent}" opacity="0.88"/>
+      <path d="M 38 162 L 88 128 L 148 95 L 208 110 L 272 92" stroke="#D8DEE9" stroke-width="1.1" fill="none" opacity="0.36"/>
+      <path d="M 72 14 L 112 50 L 148 95" stroke="#D8DEE9" stroke-width="0.9" fill="none" opacity="0.26"/>
+      <path d="M 52 164 C 90 145, 128 152, 148 136 C 166 120, 190 152, 232 143 L 268 124"
+        stroke="${accent}" stroke-width="1.2" fill="none" opacity="0.50" stroke-dasharray="4 3"/>
+      <text x="48" y="25" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9" opacity="0.58">TWD97</text>
+      <g stroke="${accent}" stroke-width="0.9" fill="none" opacity="0.55">
+        <polygon points="283,28 305,56 261,56"/>
+        <line x1="283" y1="28" x2="283" y2="56"/>
+        <line x1="261" y1="42" x2="305" y2="42"/>
+        <line x1="272" y1="42" x2="261" y2="56"/>
+        <line x1="294" y1="42" x2="305" y2="56"/>
+      </g>
+      <text x="283" y="68" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="${accent}" opacity="0.70">LOD</text>
+    </svg>`;
+  },
+
   'meat-mesh': (accent) => {
     const grid = [
       [93,58],[121,48],[151,46],[181,52],[207,69],
