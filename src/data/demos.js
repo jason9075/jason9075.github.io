@@ -160,12 +160,12 @@ export const DEMOS = [
     tags: ['three.js', 'lighting', 'rendering'],
   },
   {
-    slug: 'dtm-visualizer',
+    slug: 'formosa-edge',
     group: '3d',
-    title: 'DTM Visualizer',
-    desc: 'Interactive 3D terrain viewer for the Taipei metropolitan area, rendered from government LiDAR tiles. Features LOD switching, frustum culling, a TWD97 coordinate grid overlay, administrative boundary lines, and a road network overlay.',
-    href: 'https://jason9075.github.io/DTM-Visualizer/',
-    tags: ['three.js', 'lidar', 'terrain', 'gis'],
+    title: "Formosa's Edge — Taiwan 3D Terrain",
+    desc: "Interactive 3D terrain viewer for Taiwan's main island — 19 counties merged into one map. Offline Python pipeline converts government photogrammetry tiles to GLB meshes, rendered in-browser with a 100 m overview base, on-demand 20 m tile streaming, frustum culling, TWD97 grid, administrative boundaries, and road network.",
+    href: 'https://jason9075.github.io/formosa-edge/',
+    tags: ['three.js', 'terrain', 'gis', 'photogrammetry'],
   },
 ];
 

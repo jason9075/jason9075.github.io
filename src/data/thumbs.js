@@ -609,7 +609,7 @@ export const THUMBS = {
     </svg>`;
   },
 
-  'dtm-visualizer': (accent) => {
+  'formosa-edge': (accent) => {
     const gridH = Array.from({length: 7}, (_, i) =>
       `<line x1="20" y1="${28 + i * 22}" x2="300" y2="${28 + i * 22}" stroke="#3B4252" stroke-width="0.6"/>`
     ).join('');
