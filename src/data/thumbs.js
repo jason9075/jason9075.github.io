@@ -609,6 +609,28 @@ export const THUMBS = {
     </svg>`;
   },
 
+  'cfl-condition': (accent) => {
+    const bell = (cx, hw) =>
+      `M ${cx - hw} 124 Q ${cx - hw * 0.35} 124, ${cx} 68 Q ${cx + hw * 0.35} 124, ${cx + hw} 124`;
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      <line x1="160" y1="8" x2="160" y2="172" stroke="#4C566A" stroke-width="1" stroke-dasharray="4 3"/>
+      <line x1="12" y1="124" x2="148" y2="124" stroke="#3B4252" stroke-width="1"/>
+      <line x1="172" y1="124" x2="308" y2="124" stroke="#3B4252" stroke-width="1"/>
+      <text x="80" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9" opacity="0.65">Stable</text>
+      <text x="240" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9" opacity="0.65">Unstable</text>
+      <path d="${bell(42, 22)}" stroke="${accent}" fill="${accent}" fill-opacity="0.07" stroke-width="1" opacity="0.32"/>
+      <path d="${bell(76, 22)}" stroke="${accent}" fill="${accent}" fill-opacity="0.10" stroke-width="1.1" opacity="0.54"/>
+      <path d="${bell(110, 22)}" stroke="${accent}" fill="${accent}" fill-opacity="0.14" stroke-width="1.5" opacity="0.88"/>
+      <line x1="44" y1="148" x2="104" y2="148" stroke="${accent}" stroke-width="1" opacity="0.55"/>
+      <path d="M 100 144 L 106 148 L 100 152" stroke="${accent}" stroke-width="1" fill="none" opacity="0.55"/>
+      <text x="80" y="170" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="${accent}" opacity="0.85">CFL ≤ 1</text>
+      <path d="M 176 124 L 190 104 L 204 124 L 218 90 L 232 124 L 246 68 L 260 124 L 274 42 L 288 124"
+        stroke="${accent}" fill="none" stroke-width="1.4" opacity="0.85"/>
+      <text x="240" y="170" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="${accent}" opacity="0.85">CFL > 1</text>
+    </svg>`;
+  },
+
   'formosa-edge': (accent) => {
     const gridH = Array.from({length: 7}, (_, i) =>
       `<line x1="20" y1="${28 + i * 22}" x2="300" y2="${28 + i * 22}" stroke="#3B4252" stroke-width="0.6"/>`

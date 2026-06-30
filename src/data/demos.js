@@ -160,6 +160,14 @@ export const DEMOS = [
     tags: ['three.js', 'lighting', 'rendering'],
   },
   {
+    slug: 'cfl-condition',
+    group: 'math',
+    title: 'CFL Condition Simulator',
+    desc: 'Interactive simulation of the 1D advection equation via Finite Difference Method. Adjust the CFL number in real time and watch the numerical solution stay stable or catastrophically blow up.',
+    href: 'https://jason9075.github.io/courant-friedrichs-lewy-condition/',
+    tags: ['fdm', 'pde', 'simulation'],
+  },
+  {
     slug: 'formosa-edge',
     group: '3d',
     title: "Formosa's Edge — Taiwan 3D Terrain",
