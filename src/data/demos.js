@@ -160,6 +160,14 @@ export const DEMOS = [
     tags: ['three.js', 'lighting', 'rendering'],
   },
   {
+    slug: 'lagrange-mountaineer',
+    group: 'math',
+    title: 'Lagrange Mountaineer',
+    desc: 'Interactive Three.js visualization that builds geometric intuition for Lagrange multipliers — explore the objective surface, constraint curve, and the gradient alignment condition live.',
+    href: 'https://jason9075.github.io/lagrange_mountaineer/',
+    tags: ['three.js', 'optimization', 'calculus'],
+  },
+  {
     slug: 'cfl-condition',
     group: 'math',
     title: 'CFL Condition Simulator',

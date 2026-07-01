@@ -609,6 +609,31 @@ export const THUMBS = {
     </svg>`;
   },
 
+  'lagrange-mountaineer': (accent) => {
+    const contours = [[18, 13], [34, 23], [52, 35], [70, 47], [90, 61]].map(([rx, ry], i) =>
+      `<ellipse cx="106" cy="116" rx="${rx}" ry="${ry}" fill="none" stroke="${accent}" stroke-width="${0.7 + i * 0.15}" opacity="${0.18 + i * 0.13}" transform="rotate(-18 106 116)"/>`
+    ).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      <ellipse cx="106" cy="116" rx="18" ry="13" fill="${accent}" fill-opacity="0.12" transform="rotate(-18 106 116)"/>
+      ${contours}
+      <circle cx="128" cy="83" r="40" fill="none" stroke="#D8DEE9" stroke-width="1.3" stroke-dasharray="5 3" opacity="0.55"/>
+      <circle cx="150" cy="50" r="4.5" fill="${accent}"/>
+      <circle cx="150" cy="50" r="9" fill="none" stroke="${accent}" stroke-width="0.8" opacity="0.4"/>
+      <line x1="148" y1="49" x2="162" y2="27" stroke="${accent}" stroke-width="1.5"/>
+      <path d="M 157 24 L 164 29 L 156 32" stroke="${accent}" stroke-width="1.1" fill="none"/>
+      <text x="167" y="24" font-family="JetBrains Mono, monospace" font-size="8" fill="${accent}">∇f</text>
+      <line x1="153" y1="52" x2="167" y2="30" stroke="#D8DEE9" stroke-width="1.5" opacity="0.72"/>
+      <path d="M 162 27 L 169 32 L 161 35" stroke="#D8DEE9" stroke-width="1.1" fill="none" opacity="0.72"/>
+      <text x="172" y="38" font-family="JetBrains Mono, monospace" font-size="8" fill="#D8DEE9" opacity="0.72">∇g</text>
+      <text x="158" y="66" font-family="JetBrains Mono, monospace" font-size="10" fill="${accent}" opacity="0.80">λ</text>
+      <circle cx="106" cy="116" r="3" fill="${accent}" opacity="0.55"/>
+      <text x="112" y="136" font-family="JetBrains Mono, monospace" font-size="7" fill="${accent}" opacity="0.5">f*</text>
+      <text x="225" y="60" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9" opacity="0.42">g(x,y)=c</text>
+      <line x1="223" y1="62" x2="198" y2="73" stroke="#D8DEE9" stroke-width="0.7" opacity="0.35"/>
+    </svg>`;
+  },
+
   'cfl-condition': (accent) => {
     const bell = (cx, hw) =>
       `M ${cx - hw} 124 Q ${cx - hw * 0.35} 124, ${cx} 68 Q ${cx + hw * 0.35} 124, ${cx + hw} 124`;
