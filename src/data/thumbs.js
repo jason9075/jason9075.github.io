@@ -746,4 +746,46 @@ export const THUMBS = {
       <circle cx="272" cy="132" r="4" fill="${accent}"/>
     </svg>`;
   },
+
+  'skyline-rush': (accent) => {
+    const bldgs = [
+      [0, 33, 85], [36, 26, 55], [65, 38, 105], [106, 24, 72],
+      [134, 28, 120], [166, 34, 80], [204, 26, 62], [234, 40, 95], [278, 42, 68],
+    ].map(([x, w, h], bi) => {
+      const y = 180 - h;
+      const cols = Math.floor((w - 6) / 10);
+      const rows = Math.floor((h - 8) / 14);
+      const wins = Array.from({length: rows}, (_, r) =>
+        Array.from({length: cols}, (_, c) =>
+          `<rect x="${x + 4 + c * 10}" y="${y + 6 + r * 14}" width="5" height="7" fill="#D8DEE9" opacity="${(bi + r * 3 + c * 2) % 5 !== 0 ? 0.48 : 0.06}"/>`
+        ).join('')
+      ).join('');
+      return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#3B4252"/><rect x="${x}" y="${y}" width="${w}" height="2" fill="#4C566A"/>${wins}`;
+    }).join('');
+    const dx = 100, dy = 64;
+    const arms = [[-18, -15], [18, -15], [-18, 15], [18, 15]].map(([ax, ay]) =>
+      `<line x1="${dx}" y1="${dy}" x2="${dx + ax}" y2="${dy + ay}" stroke="${accent}" stroke-width="1.5"/>
+       <ellipse cx="${dx + ax}" cy="${dy + ay}" rx="9" ry="2.5" fill="none" stroke="${accent}" stroke-width="1.1" opacity="0.65"/>`
+    ).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <defs>
+        <linearGradient id="srSky" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#1A1F2B"/>
+          <stop offset="100%" stop-color="#2E3440"/>
+        </linearGradient>
+      </defs>
+      <rect width="320" height="180" fill="url(#srSky)"/>
+      ${bldgs}
+      <g stroke="${accent}" stroke-width="0.9" opacity="0.3">
+        <line x1="0" y1="50" x2="78" y2="57"/>
+        <line x1="0" y1="62" x2="78" y2="64"/>
+        <line x1="0" y1="74" x2="78" y2="71"/>
+        <line x1="6" y1="42" x2="74" y2="51"/>
+        <line x1="6" y1="82" x2="74" y2="77"/>
+      </g>
+      <rect x="${dx - 7}" y="${dy - 5}" width="14" height="10" rx="2" fill="${accent}"/>
+      <circle cx="${dx}" cy="${dy}" r="2" fill="#ECEFF4"/>
+      ${arms}
+    </svg>`;
+  },
 };

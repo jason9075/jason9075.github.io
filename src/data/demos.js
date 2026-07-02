@@ -176,6 +176,14 @@ export const DEMOS = [
     tags: ['fdm', 'pde', 'simulation'],
   },
   {
+    slug: 'skyline-rush',
+    group: 'game',
+    title: 'Skyline Rush',
+    desc: 'Browser-based 3D drone flight simulator built with Three.js. Fly a quadcopter through an infinite procedurally generated city using a real RC transmitter over USB or the keyboard.',
+    href: 'https://jason9075.github.io/Skyline-Rush/',
+    tags: ['three.js', 'drone', 'procedural'],
+  },
+  {
     slug: 'formosa-edge',
     group: '3d',
     title: "Formosa's Edge — Taiwan 3D Terrain",
@@ -190,4 +198,5 @@ export const GROUPS = [
   { id: 'vision', label: 'Computer Vision', color: '#B48EAD', short: 'Vision' },
   { id: 'math',   label: 'Math',            color: '#EBCB8B', short: 'Math'   },
   { id: 'cs',     label: 'CS & Algorithms', color: '#A3BE8C', short: 'CS'     },
+  { id: 'game',   label: 'Games',           color: '#BF616A', short: 'Game'   },
 ];
