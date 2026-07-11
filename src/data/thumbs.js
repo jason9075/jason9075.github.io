@@ -80,6 +80,50 @@ export const THUMBS = {
     </svg>`;
   },
 
+  'mrf-city': (accent) => {
+    const cells = [
+      ['M 0 0 L 74 0 L 62 46 L 16 58 Z', '#4C566A'],
+      ['M 74 0 L 154 0 L 139 54 L 62 46 Z', accent],
+      ['M 154 0 L 245 0 L 231 48 L 139 54 Z', '#5E81AC'],
+      ['M 245 0 L 320 0 L 320 62 L 231 48 Z', '#A3BE8C'],
+      ['M 16 58 L 62 46 L 96 101 L 28 118 Z', '#B48EAD'],
+      ['M 62 46 L 139 54 L 151 111 L 96 101 Z', '#EBCB8B'],
+      ['M 139 54 L 231 48 L 219 108 L 151 111 Z', accent],
+      ['M 231 48 L 320 62 L 320 130 L 219 108 Z', '#D08770'],
+      ['M 28 118 L 96 101 L 119 180 L 0 180 L 0 144 Z', '#A3BE8C'],
+      ['M 96 101 L 151 111 L 178 180 L 119 180 Z', '#4C566A'],
+      ['M 151 111 L 219 108 L 250 180 L 178 180 Z', '#B48EAD'],
+      ['M 219 108 L 320 130 L 320 180 L 250 180 Z', '#5E81AC'],
+    ].map(([d, fill], i) =>
+      `<path d="${d}" fill="${fill}" opacity="${i % 3 === 0 ? 0.50 : 0.34}" stroke="#2E3440" stroke-width="1.2"/>`
+    ).join('');
+    const roads = [
+      'M 0 144 C 70 114, 121 122, 180 91 S 263 54, 320 62',
+      'M 74 0 C 96 48, 110 94, 119 180',
+      'M 245 0 C 210 46, 202 99, 250 180',
+      'M 16 58 C 93 66, 186 71, 320 130',
+    ].map(d => `<path d="${d}" stroke="#ECEFF4" stroke-width="2.2" fill="none" opacity="0.28"/>`).join('');
+    const towers = [
+      [76, 94, 18, 42], [108, 77, 13, 30], [143, 94, 20, 55], [178, 78, 16, 38],
+      [206, 92, 22, 62], [239, 74, 14, 31], [265, 93, 19, 47], [53, 113, 13, 27],
+    ].map(([x, y, w, h], i) =>
+      `<g>
+        <polygon points="${x},${y} ${x + w},${y - 7} ${x + w},${y + h} ${x},${y + h + 7}" fill="#3B4252"/>
+        <polygon points="${x + w},${y - 7} ${x + w + 10},${y} ${x + w + 10},${y + h + 7} ${x + w},${y + h}" fill="#2E3440"/>
+        <polygon points="${x},${y} ${x + w},${y - 7} ${x + w + 10},${y} ${x + 10},${y + 7}" fill="${i % 2 ? accent : '#D8DEE9'}" opacity="0.58"/>
+      </g>`
+    ).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      ${cells}
+      ${roads}
+      <g opacity="0.95">${towers}</g>
+      <path d="M 36 28 L 86 25 L 106 58 L 72 82 L 31 67 Z" fill="none" stroke="${accent}" stroke-width="1.4" stroke-dasharray="4 3" opacity="0.75"/>
+      <circle cx="72" cy="82" r="3" fill="${accent}"/>
+      <text x="38" y="42" font-family="JetBrains Mono, monospace" font-size="8" fill="#ECEFF4" opacity="0.72">MRF</text>
+    </svg>`;
+  },
+
   'camera-calibration': (accent) => {
     const squares = Array.from({length:5}, (_,r) =>
       Array.from({length:7}, (_,c) =>

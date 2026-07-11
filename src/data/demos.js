@@ -16,6 +16,14 @@ export const DEMOS = [
     tags: ['three.js', 'calibration', 'matrices'],
   },
   {
+    slug: 'mrf-city',
+    group: 'vision',
+    title: 'MRF City',
+    desc: 'Upload any image and watch it become a city. A Markov Random Field segments the image into region classes, then a Voronoi-based procedural generator grows a 3D city on top.',
+    href: 'https://jason9075.github.io/MRF-City/',
+    tags: ['mrf', 'voronoi', 'procedural', 'three.js'],
+  },
+  {
     slug: 'taylorflow',
     group: 'math',
     title: 'TaylorFlow',
