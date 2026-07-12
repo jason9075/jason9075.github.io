@@ -24,6 +24,14 @@ export const DEMOS = [
     tags: ['mrf', 'voronoi', 'procedural', 'three.js'],
   },
   {
+    slug: 'very-wise',
+    group: 'cs',
+    title: 'very-wise',
+    desc: 'A visual guide to the wise family of deep-learning tensor operations. Manipulate 3D voxel tensors to build intuition for depthwise, pointwise, position-wise, and other slicing patterns.',
+    href: 'https://jason9075.github.io/very-wise/',
+    tags: ['deep-learning', 'tensors', 'three.js', 'interactive'],
+  },
+  {
     slug: 'taylorflow',
     group: 'math',
     title: 'TaylorFlow',

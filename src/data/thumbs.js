@@ -124,6 +124,39 @@ export const THUMBS = {
     </svg>`;
   },
 
+  'very-wise': (accent) => {
+    const cube = (x, y, color, opacity = 1) => `<g opacity="${opacity}">
+      <polygon points="${x},${y} ${x + 12},${y - 6} ${x + 24},${y} ${x + 12},${y + 6}" fill="${color}"/>
+      <polygon points="${x},${y} ${x + 12},${y + 6} ${x + 12},${y + 20} ${x},${y + 14}" fill="${color}" opacity="0.52"/>
+      <polygon points="${x + 12},${y + 6} ${x + 24},${y} ${x + 24},${y + 14} ${x + 12},${y + 20}" fill="${color}" opacity="0.72"/>
+    </g>`;
+    const colors = ['#88C0D0', accent, '#EBCB8B'];
+    const tensor = colors.map((color, layer) =>
+      Array.from({length: 3}, (_, row) =>
+        Array.from({length: 3}, (_, col) =>
+          cube(28 + col * 25 + layer * 8, 48 + row * 16 - layer * 18, color, 0.76 + layer * 0.1)
+        ).join('')
+      ).join('')
+    ).join('');
+    const output = Array.from({length: 3}, (_, row) =>
+      Array.from({length: 3}, (_, col) => cube(224 + col * 22, 66 + row * 15, accent, 0.82)).join('')
+    ).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      <g stroke="#D8DEE9" stroke-width="0.55" stroke-opacity="0.22">${tensor}</g>
+      <path d="M 137 91 L 188 91" stroke="#D8DEE9" stroke-width="1.2" opacity="0.55"/>
+      <path d="M 181 85 L 188 91 L 181 97" fill="none" stroke="${accent}" stroke-width="1.8"/>
+      <g transform="translate(160 91) rotate(30)">
+        <rect x="-15" y="-23" width="30" height="46" fill="${accent}" fill-opacity="0.16" stroke="${accent}" stroke-width="1.5"/>
+        <line x1="-5" y1="-23" x2="-5" y2="23" stroke="${accent}" opacity="0.55"/>
+        <line x1="5" y1="-23" x2="5" y2="23" stroke="${accent}" opacity="0.55"/>
+      </g>
+      <g stroke="#D8DEE9" stroke-width="0.55" stroke-opacity="0.25">${output}</g>
+      <text x="28" y="151" font-family="JetBrains Mono, monospace" font-size="9" fill="#D8DEE9" opacity="0.66">H x W x C</text>
+      <text x="220" y="151" font-family="JetBrains Mono, monospace" font-size="9" fill="${accent}" opacity="0.88">*WISE</text>
+    </svg>`;
+  },
+
   'camera-calibration': (accent) => {
     const squares = Array.from({length:5}, (_,r) =>
       Array.from({length:7}, (_,c) =>
