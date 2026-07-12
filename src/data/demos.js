@@ -199,6 +199,14 @@ export const DEMOS = [
     href: 'https://jason9075.github.io/formosa-edge/',
     tags: ['three.js', 'terrain', 'gis', 'photogrammetry'],
   },
+  {
+    slug: 'hogwarts',
+    group: 'vision',
+    title: 'HOGwArts',
+    desc: 'A clean, high-performance 2D visualization laboratory for dissecting the Histogram of Oriented Gradients (HOG) algorithm in the browser. Load an image, watch its gradient field render as neon vectors, and probe individual cells in real time.',
+    href: 'https://jason9075.github.io/HOGwArts/',
+    tags: ['hog', 'gradients', 'canvas'],
+  },
 ];
 
 export const GROUPS = [

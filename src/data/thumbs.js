@@ -791,6 +791,52 @@ export const THUMBS = {
     </svg>`;
   },
 
+  'hogwarts': (accent) => {
+    const CW = 34, CH = 32, cols = 7, rows = 5, ox = 8, oy = 10, R = 12;
+    const data = [
+      // row 0: horizontal edge (top)
+      [[0,.9]],[[0,.8],[45,.4]],[[0,.7],[135,.3]],[[0,.9]],[[0,.7],[45,.3]],[[0,.8],[135,.4]],[[0,.9]],
+      // row 1: vertical sides, diagonal transitions
+      [[90,.9],[45,.3]],[[45,.5],[90,.4]],[[135,.4],[0,.3]],[[90,.4],[45,.3]],[[45,.3],[135,.4]],[[135,.5],[90,.4]],[[90,.9],[135,.3]],
+      // row 2: vertical sides, interior mixed
+      [[90,.9]],[[90,.4],[0,.6]],[[0,.7],[45,.4]],[[45,.8],[135,.3]],[[135,.8],[45,.3]],[[0,.6],[90,.4]],[[90,.9]],
+      // row 3: vertical sides, diagonal transitions
+      [[90,.9],[135,.3]],[[135,.5],[90,.4]],[[90,.3],[0,.4]],[[0,.5],[90,.3]],[[90,.3],[0,.5]],[[45,.5],[90,.4]],[[90,.9],[45,.3]],
+      // row 4: horizontal edge (bottom)
+      [[0,.9]],[[0,.8],[135,.4]],[[0,.7],[45,.3]],[[0,.9]],[[0,.7],[135,.3]],[[0,.8],[45,.4]],[[0,.9]],
+    ];
+    const bars = data.map((cell, idx) => {
+      const col = idx % cols, row = Math.floor(idx / cols);
+      const cx = ox + col * CW + CW / 2, cy = oy + row * CH + CH / 2;
+      return cell.map(([a, m]) => {
+        const rad = a * Math.PI / 180;
+        const dx = Math.cos(rad) * R * m, dy = Math.sin(rad) * R * m;
+        return `<line x1="${(cx-dx).toFixed(1)}" y1="${(cy-dy).toFixed(1)}" x2="${(cx+dx).toFixed(1)}" y2="${(cy+dy).toFixed(1)}" stroke="${accent}" stroke-width="${(1+m).toFixed(1)}" stroke-opacity="${(0.4+m*0.6).toFixed(2)}" stroke-linecap="round"/>`;
+      }).join('');
+    }).join('');
+    const hlines = Array.from({length:rows+1}, (_,i) =>
+      `<line x1="${ox}" y1="${oy+i*CH}" x2="${ox+cols*CW}" y2="${oy+i*CH}" stroke="#434C5E" stroke-width="0.5"/>`
+    ).join('');
+    const vlines = Array.from({length:cols+1}, (_,i) =>
+      `<line x1="${ox+i*CW}" y1="${oy}" x2="${ox+i*CW}" y2="${oy+rows*CH}" stroke="#434C5E" stroke-width="0.5"/>`
+    ).join('');
+    const probe = `<rect x="${ox+3*CW}" y="${oy+2*CH}" width="${CW}" height="${CH}" fill="${accent}" fill-opacity="0.12" stroke="${accent}" stroke-width="1.4"/>`;
+    const mags = [.15,.35,.85,.45,.20,.15,.30,.75,.20];
+    const hx = 256, hy = 162, maxH = 55;
+    const histBars = mags.map((m, i) =>
+      `<rect x="${hx+i*7}" y="${(hy-m*maxH).toFixed(1)}" width="5" height="${(m*maxH).toFixed(1)}" fill="${accent}" opacity="${(0.45+m*0.5).toFixed(2)}"/>`
+    ).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      <g>${hlines}${vlines}</g>
+      ${probe}${bars}
+      <line x1="${hx-2}" y1="${hy}" x2="${hx+63}" y2="${hy}" stroke="#434C5E" stroke-width="1"/>
+      ${histBars}
+      <text x="${hx+30}" y="175" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9" opacity="0.55">0→180°</text>
+      <text x="${hx+30}" y="22" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="${accent}" opacity="0.80">HOG</text>
+    </svg>`;
+  },
+
   'skyline-rush': (accent) => {
     const bldgs = [
       [0, 33, 85], [36, 26, 55], [65, 38, 105], [106, 24, 72],
