@@ -157,6 +157,46 @@ export const THUMBS = {
     </svg>`;
   },
 
+  'very-attentive': (accent) => {
+    const tokens = ['I', 'love', 'AI', '<next>'].map((label, i) => `
+      <g transform="translate(${28 + i * 48} 26)">
+        <rect x="0" y="0" width="36" height="20" rx="3" fill="${i === 3 ? accent : '#3B4252'}" fill-opacity="${i === 3 ? 0.76 : 1}" stroke="#D8DEE9" stroke-opacity="0.18"/>
+        <text x="18" y="14" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#ECEFF4">${label}</text>
+      </g>`).join('');
+    const blockSteps = [
+      ['LN', 37, 101],
+      ['QKV', 83, 101],
+      ['ATTN', 132, 101],
+      ['+', 185, 101],
+      ['FFN', 232, 101],
+    ].map(([label, x, y], i) => `
+      <g>
+        <rect x="${x - 18}" y="${y - 14}" width="36" height="28" rx="3" fill="${i === 2 ? accent : '#3B4252'}" fill-opacity="${i === 2 ? 0.36 : 0.92}" stroke="${i === 2 ? accent : '#D8DEE9'}" stroke-opacity="${i === 2 ? 0.8 : 0.18}"/>
+        <text x="${x}" y="${y + 4}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="${i === 2 ? accent : '#D8DEE9'}">${label}</text>
+      </g>`).join('');
+    const links = [55, 101, 150, 203].map(x => `
+      <path d="M ${x} 101 L ${x + 20} 101" stroke="#D8DEE9" stroke-width="1" opacity="0.42"/>
+      <path d="M ${x + 16} 97 L ${x + 20} 101 L ${x + 16} 105" fill="none" stroke="${accent}" stroke-width="1.2" opacity="0.78"/>`).join('');
+    const attention = [0, 1, 2, 3].map((from) =>
+      [0, 1, 2, 3].map((to) =>
+        `<line x1="${46 + from * 48}" y1="55" x2="${46 + to * 48}" y2="76" stroke="${accent}" stroke-width="${from === to ? 1.5 : 0.7}" opacity="${from >= to ? 0.44 : 0.12}"/>`
+      ).join('')
+    ).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      <g opacity="0.88">${tokens}</g>
+      <g>${attention}</g>
+      <path d="M 246 36 C 277 46, 283 71, 253 89" fill="none" stroke="${accent}" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.7"/>
+      <path d="M 255 82 L 253 89 L 260 87" fill="none" stroke="${accent}" stroke-width="1.2" opacity="0.7"/>
+      <rect x="15" y="78" width="275" height="58" rx="5" fill="#242933" stroke="#D8DEE9" stroke-opacity="0.14"/>
+      ${links}${blockSteps}
+      <path d="M 37 121 C 79 154, 153 153, 185 121" fill="none" stroke="${accent}" stroke-width="1" opacity="0.48"/>
+      <path d="M 185 121 C 202 145, 228 145, 232 121" fill="none" stroke="${accent}" stroke-width="1" opacity="0.48"/>
+      <text x="24" y="157" font-family="JetBrains Mono, monospace" font-size="9" fill="#D8DEE9" opacity="0.66">MACRO</text>
+      <text x="225" y="157" font-family="JetBrains Mono, monospace" font-size="9" fill="${accent}" opacity="0.88">MICRO</text>
+    </svg>`;
+  },
+
   'camera-calibration': (accent) => {
     const squares = Array.from({length:5}, (_,r) =>
       Array.from({length:7}, (_,c) =>

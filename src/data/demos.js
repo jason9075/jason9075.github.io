@@ -32,6 +32,14 @@ export const DEMOS = [
     tags: ['deep-learning', 'tensors', 'three.js', 'interactive'],
   },
   {
+    slug: 'very-attentive',
+    group: 'cs',
+    title: 'very-attentive',
+    desc: 'A visual guide to the Transformer architecture. Zoom from the full token-by-token generation pipeline into one block: LayerNorm, Q/K/V attention, residual paths, and FFN.',
+    href: 'https://jason9075.github.io/very-attentive/',
+    tags: ['transformer', 'attention', 'deep-learning', 'three.js'],
+  },
+  {
     slug: 'taylorflow',
     group: 'math',
     title: 'TaylorFlow',
