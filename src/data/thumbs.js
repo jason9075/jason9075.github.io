@@ -197,6 +197,39 @@ export const THUMBS = {
     </svg>`;
   },
 
+  'fourier-paint': (accent) => {
+    const spectrumDots = [
+      [-30, -22, 2.4, 0.34], [-22, -15, 2, 0.48], [-15, -9, 1.8, 0.66],
+      [-9, -5, 2.2, 0.82], [-5, -2, 2.6, 0.95], [5, 2, 2.6, 0.95],
+      [9, 5, 2.2, 0.82], [15, 9, 1.8, 0.66], [22, 15, 2, 0.48], [30, 22, 2.4, 0.34],
+      [-27, 18, 1.6, 0.32], [-18, 25, 1.8, 0.28], [18, -25, 1.8, 0.28], [27, -18, 1.6, 0.32],
+      [-12, 21, 1.4, 0.36], [12, -21, 1.4, 0.36], [-24, -5, 1.5, 0.30], [24, 5, 1.5, 0.30],
+    ].map(([x, y, r, opacity]) =>
+      `<circle cx="${242 + x}" cy="${82 + y}" r="${r}" fill="${accent}" opacity="${opacity}"/>`
+    ).join('');
+    const spectrumGrid = Array.from({length: 7}, (_, i) => `
+      <line x1="202" y1="${42 + i * 13.3}" x2="282" y2="${42 + i * 13.3}" stroke="#D8DEE9" stroke-width="0.45" opacity="0.10"/>
+      <line x1="${202 + i * 13.3}" y1="42" x2="${202 + i * 13.3}" y2="122" stroke="#D8DEE9" stroke-width="0.45" opacity="0.10"/>`
+    ).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      <rect x="24" y="35" width="92" height="92" rx="4" fill="#D8DEE9" stroke="#ECEFF4" stroke-opacity="0.18"/>
+      <path d="M 39 98 C 46 62, 62 52, 73 74 S 94 115, 104 61" fill="none" stroke="#3B4252" stroke-width="13" stroke-linecap="round" opacity="0.90"/>
+      <path d="M 40 107 C 58 113, 69 103, 79 91 S 94 74, 105 84" fill="none" stroke="#4C566A" stroke-width="8" stroke-linecap="round" opacity="0.76"/>
+      <circle cx="151" cy="81" r="23" fill="#242933" stroke="${accent}" stroke-width="1.4" opacity="0.96"/>
+      <circle cx="151" cy="81" r="12" fill="${accent}" fill-opacity="0.16" stroke="${accent}" stroke-width="1" stroke-dasharray="3 2"/>
+      <path d="M 124 81 L 132 81 M 170 81 L 190 81" stroke="#D8DEE9" stroke-width="1.2" opacity="0.48"/>
+      <path d="M 185 76 L 190 81 L 185 86" fill="none" stroke="${accent}" stroke-width="1.5"/>
+      <rect x="198" y="38" width="88" height="88" rx="4" fill="#242933" stroke="#D8DEE9" stroke-opacity="0.16"/>
+      ${spectrumGrid}
+      <circle cx="242" cy="82" r="31" fill="none" stroke="${accent}" stroke-width="1" stroke-dasharray="3 3" opacity="0.42"/>
+      <circle cx="242" cy="82" r="5" fill="#ECEFF4" opacity="0.86"/>
+      ${spectrumDots}
+      <text x="28" y="148" font-family="JetBrains Mono, monospace" font-size="9" fill="#D8DEE9" opacity="0.66">PAINT</text>
+      <text x="205" y="148" font-family="JetBrains Mono, monospace" font-size="9" fill="${accent}" opacity="0.88">FREQUENCY</text>
+    </svg>`;
+  },
+
   'camera-calibration': (accent) => {
     const squares = Array.from({length:5}, (_,r) =>
       Array.from({length:7}, (_,c) =>

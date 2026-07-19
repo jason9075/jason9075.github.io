@@ -40,6 +40,14 @@ export const DEMOS = [
     tags: ['transformer', 'attention', 'deep-learning', 'three.js'],
   },
   {
+    slug: 'fourier-paint',
+    group: 'math',
+    title: 'Fourier Paint',
+    desc: 'An interactive playground for the 2D Fourier transform. Paint a grayscale image, inspect its live frequency spectrum, apply radial filters, and watch the reconstruction update in real time.',
+    href: 'https://jason9075.github.io/Fourier-Paint/',
+    tags: ['fourier-transform', 'image-processing', 'frequency-domain', 'canvas'],
+  },
+  {
     slug: 'taylorflow',
     group: 'math',
     title: 'TaylorFlow',
