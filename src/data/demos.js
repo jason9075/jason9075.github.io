@@ -1,5 +1,13 @@
 export const DEMOS = [
   {
+    slug: 'gis-hlod',
+    group: '3d',
+    title: 'GIS HLOD Lab',
+    desc: 'Interactive Three.js visualization for exploring Hierarchical Level of Detail (HLOD) in a GIS-style terrain environment.',
+    href: 'https://jason9075.github.io/GIS-HLOD/',
+    tags: ['three.js', 'hlod', 'gis', 'terrain'],
+  },
+  {
     slug: 'gaussian-splatting',
     group: '3d',
     title: 'Gaussian Splatting Explained',

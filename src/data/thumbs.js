@@ -1,4 +1,43 @@
 export const THUMBS = {
+  'gis-hlod': (accent) => {
+    const coarseTiles = [
+      [22, 34, 138, 72], [160, 34, 138, 72],
+      [22, 106, 138, 52], [160, 106, 138, 52],
+    ].map(([x, y, w, h]) =>
+      `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#3B4252" stroke="#4C566A" stroke-width="1"/>`
+    ).join('');
+    const fineTiles = Array.from({length: 4}, (_, row) =>
+      Array.from({length: 4}, (_, col) =>
+        `<rect x="${160 + col * 17.25}" y="${70 + row * 9}" width="17.25" height="9"
+          fill="${accent}" fill-opacity="${0.08 + (row + col) * 0.025}"
+          stroke="${accent}" stroke-width="0.65" stroke-opacity="0.72"/>`
+      ).join('')
+    ).join('');
+    const contours = [
+      'M 8 139 C 48 112, 66 119, 92 92 S 139 57, 174 78 S 227 132, 312 83',
+      'M 8 151 C 52 127, 73 135, 101 107 S 145 75, 177 94 S 231 145, 312 99',
+      'M 24 112 C 61 88, 84 98, 111 72 S 153 43, 185 64 S 236 118, 298 70',
+      'M 52 80 C 86 56, 106 66, 130 48 S 169 26, 198 48 S 245 91, 277 61',
+    ].map((d, i) =>
+      `<path d="${d}" fill="none" stroke="${i === 1 ? accent : '#D8DEE9'}"
+        stroke-width="${i === 1 ? 1.6 : 0.85}" opacity="${i === 1 ? 0.9 : 0.34}"/>`
+    ).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      <g transform="skewY(-5)">${coarseTiles}${fineTiles}</g>
+      <g>${contours}</g>
+      <rect x="160" y="70" width="69" height="36" fill="none" stroke="${accent}" stroke-width="1.8"/>
+      <path d="M 160 70 L 148 58 M 229 70 L 241 58 M 160 106 L 148 118 M 229 106 L 241 118"
+        fill="none" stroke="${accent}" stroke-width="1" stroke-dasharray="3 3" opacity="0.72"/>
+      <circle cx="194.5" cy="88" r="4" fill="#ECEFF4"/>
+      <circle cx="194.5" cy="88" r="11" fill="none" stroke="${accent}" stroke-width="1" stroke-dasharray="2 3"/>
+      <g font-family="JetBrains Mono, monospace" font-size="7" fill="#D8DEE9">
+        <text x="28" y="26" opacity="0.62">LOD 0</text>
+        <text x="252" y="26" fill="${accent}" opacity="0.88">LOD 3</text>
+      </g>
+    </svg>`;
+  },
+
   'gaussian-splatting': (accent) => {
     const positions = [
       [60,70,42,28,-15],[110,120,55,35,20],[170,60,38,55,40],[225,110,60,30,-30],
