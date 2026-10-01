@@ -1,4 +1,43 @@
 export const THUMBS = {
+  'standard-rgb': (accent) => {
+    const markers = [96, 224].map(x => `
+      <g>
+        <circle cx="${x}" cy="88" r="5" fill="#ECEFF4" fill-opacity="0.18" stroke="#ECEFF4" stroke-width="1"/>
+        <line x1="${x - 8}" y1="88" x2="${x + 8}" y2="88" stroke="#ECEFF4" stroke-width="0.8"/>
+        <line x1="${x}" y1="80" x2="${x}" y2="96" stroke="#ECEFF4" stroke-width="0.8"/>
+      </g>`).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <defs>
+        <radialGradient id="rgbSrgb" cx="34%" cy="28%" r="66%">
+          <stop offset="0%" stop-color="#ECEFF4"/>
+          <stop offset="18%" stop-color="#EF8F8F"/>
+          <stop offset="62%" stop-color="#BF616A"/>
+          <stop offset="100%" stop-color="#532F3A"/>
+        </radialGradient>
+        <radialGradient id="rgbLinear" cx="34%" cy="28%" r="66%">
+          <stop offset="0%" stop-color="#D8DEE9"/>
+          <stop offset="22%" stop-color="#C96870"/>
+          <stop offset="65%" stop-color="#7D414B"/>
+          <stop offset="100%" stop-color="#392934"/>
+        </radialGradient>
+      </defs>
+      <rect width="320" height="180" fill="#2E3440"/>
+      <circle cx="96" cy="88" r="52" fill="url(#rgbSrgb)" stroke="${accent}" stroke-width="1.2" stroke-opacity="0.72"/>
+      <circle cx="224" cy="88" r="52" fill="url(#rgbLinear)" stroke="#4C566A" stroke-width="1.2"/>
+      <g stroke="#ECEFF4" stroke-width="0.8" opacity="0.24">
+        <path d="M 35 24 L 72 49"/><path d="M 35 24 L 91 38"/><path d="M 35 24 L 110 40"/>
+        <path d="M 163 24 L 200 49"/><path d="M 163 24 L 219 38"/><path d="M 163 24 L 238 40"/>
+      </g>
+      <circle cx="35" cy="24" r="5" fill="#EBCB8B"/><circle cx="163" cy="24" r="5" fill="#EBCB8B"/>
+      ${markers}
+      <path d="M 150 88 L 170 88" stroke="${accent}" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.8"/>
+      <g font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">
+        <text x="96" y="158" fill="${accent}">sRGB DECODED</text>
+        <text x="224" y="158" fill="#D8DEE9" opacity="0.68">LINEAR DATA</text>
+      </g>
+    </svg>`;
+  },
+
   'gis-hlod': (accent) => {
     const coarseTiles = [
       [22, 34, 138, 72], [160, 34, 138, 72],

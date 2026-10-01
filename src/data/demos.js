@@ -1,5 +1,13 @@
 export const DEMOS = [
   {
+    slug: 'standard-rgb',
+    group: '3d',
+    title: 'Standard RGB',
+    desc: "An interactive Three.js experiment showing how texture interpretation affects lighting and material appearance. Compare sRGB color decoding with linear data handling, adjust the lighting, and inspect the values at each sphere's center marker.",
+    href: 'https://jason9075.github.io/standard_RGB/',
+    tags: ['three.js', 'srgb', 'color-space', 'lighting'],
+  },
+  {
     slug: 'gis-hlod',
     group: '3d',
     title: 'GIS HLOD Lab',
