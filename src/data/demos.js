@@ -1,5 +1,13 @@
 export const DEMOS = [
   {
+    slug: 'fc-overview',
+    group: '3d',
+    title: 'BETAFPV Matrix 1S — Hardware Explorer',
+    desc: 'An engineering-grade, double-sided Three.js PBR 3D reconstruction and interactive hardware explorer for the BETAFPV Matrix 1S Brushless Flight Controller (5IN1 II).',
+    href: 'https://jason9075.github.io/fc_overview/',
+    tags: ['three.js', 'pbr', 'hardware', 'flight-controller'],
+  },
+  {
     slug: 'standard-rgb',
     group: '3d',
     title: 'Standard RGB',

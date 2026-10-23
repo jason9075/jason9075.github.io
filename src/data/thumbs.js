@@ -1,4 +1,40 @@
 export const THUMBS = {
+  'fc-overview': (accent) => {
+    const board = (x, back) => {
+      const pads = [0, 1, 2, 3, 4, 5].map(i => `
+        <rect x="${18 + i * 12}" y="7" width="7" height="10" rx="2" fill="#EBCB8B"/>
+        <rect x="${18 + i * 12}" y="95" width="7" height="10" rx="2" fill="#EBCB8B"/>`).join('');
+      const holes = [[10, 10], [102, 10], [10, 102], [102, 102]].map(([cx, cy]) =>
+        `<circle cx="${cx}" cy="${cy}" r="5" fill="#2E3440" stroke="#EBCB8B" stroke-width="2"/>`
+      ).join('');
+      return `<g transform="translate(${x} 32) rotate(-8 56 56)">
+        <rect x="0" y="3" width="112" height="112" rx="12" fill="#1A1F2B"/>
+        <rect width="112" height="112" rx="12" fill="#3B4252" stroke="${accent}" stroke-width="1.2"/>
+        <g fill="none" stroke="${accent}" stroke-width="1" opacity="0.45">
+          <path d="M 22 17 V 35 H 40 M 82 17 V 28 H 65 V 40 M 22 95 V 78 H 40 M 82 95 V 82 H 65 V 70"/>
+          <path d="M 12 45 H 28 V 60 H 40 M 100 64 H 82 V 52 H 72"/>
+        </g>
+        ${pads}${holes}
+        <rect x="38" y="38" width="36" height="36" rx="3" fill="#242933" stroke="#4C566A"/>
+        ${back
+          ? '<rect x="46" y="46" width="20" height="20" rx="2" fill="#4C566A"/><rect x="30" y="80" width="48" height="10" rx="2" fill="#D8DEE9"/>'
+          : '<circle cx="45" cy="45" r="2" fill="#D8DEE9"/><path d="M 48 56 H 64 M 56 48 V 64" stroke="#8FBCBB" stroke-width="1.5"/>'}
+        <g fill="#D8DEE9">
+          <rect x="16" y="48" width="8" height="16" rx="1"/>
+          <rect x="88" y="38" width="8" height="16" rx="1"/>
+        </g>
+      </g>`;
+    };
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      ${board(30, false)}${board(178, true)}
+      <path d="M 149 88 H 171 M 167 84 L 171 88 L 167 92" fill="none" stroke="${accent}" stroke-width="1.2"/>
+      <g font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle" fill="${accent}">
+        <text x="86" y="166">FRONT</text><text x="234" y="166">BACK</text>
+      </g>
+    </svg>`;
+  },
+
   'standard-rgb': (accent) => {
     const markers = [96, 224].map(x => `
       <g>
