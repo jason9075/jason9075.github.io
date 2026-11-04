@@ -1,5 +1,13 @@
 export const DEMOS = [
   {
+    slug: 'rpi-overview',
+    group: '3d',
+    title: 'Raspberry Pi — Hardware Architecture Explorer',
+    desc: 'An interactive 3D single-board computer hardware architecture explorer supporting three iconic generations of the Raspberry Pi.',
+    href: 'https://jason9075.github.io/rpi-overview/',
+    tags: ['raspberry-pi', 'hardware', 'architecture', 'interactive'],
+  },
+  {
     slug: 'fc-overview',
     group: '3d',
     title: 'BETAFPV Matrix 1S — Hardware Explorer',

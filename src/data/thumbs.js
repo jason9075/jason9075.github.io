@@ -1,4 +1,36 @@
 export const THUMBS = {
+  'rpi-overview': (accent) => {
+    const pins = Array.from({ length: 20 }, (_, i) => `
+      <rect x="${13 + i * 7}" y="10" width="3" height="4" fill="#EBCB8B"/>
+      <rect x="${13 + i * 7}" y="17" width="3" height="4" fill="#EBCB8B"/>`).join('');
+    const boards = [0, 1, 2].map(i => `
+      <g transform="translate(${36 + i * 38} ${24 + i * 22})">
+        <rect x="0" y="4" width="170" height="90" rx="7" fill="#1A1F2B"/>
+        <rect width="170" height="90" rx="7" fill="#3B524A" stroke="${accent}" stroke-width="1.2"/>
+        <rect x="9" y="7" width="145" height="17" rx="2" fill="#242933"/>
+        ${pins}
+        <g fill="none" stroke="${accent}" opacity="0.5">
+          <path d="M 28 44 H 49 V 51 H 62 M 82 68 V 78 H 126 M 101 45 H 121 V 36 H 143"/>
+        </g>
+        <rect x="62" y="36" width="35" height="33" rx="3" fill="#242933" stroke="#4C566A"/>
+        <rect x="72" y="45" width="15" height="15" rx="1" fill="#4C566A"/>
+        <g fill="#D8DEE9" stroke="#4C566A">
+          <rect x="144" y="31" width="29" height="21" rx="2"/>
+          <rect x="144" y="58" width="29" height="24" rx="2"/>
+          <rect x="29" y="77" width="23" height="15" rx="2"/>
+        </g>
+        <g fill="#2E3440" stroke="#EBCB8B" stroke-width="1.5">
+          <circle cx="7" cy="7" r="3"/><circle cx="7" cy="83" r="3"/>
+          <circle cx="132" cy="83" r="3"/>
+        </g>
+      </g>`).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      ${boards}
+      <text x="160" y="172" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="${accent}">THREE GENERATIONS · RASPBERRY PI</text>
+    </svg>`;
+  },
+
   'fc-overview': (accent) => {
     const board = (x, back) => {
       const pads = [0, 1, 2, 3, 4, 5].map(i => `
