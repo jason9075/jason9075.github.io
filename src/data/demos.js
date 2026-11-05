@@ -1,7 +1,7 @@
 export const DEMOS = [
   {
     slug: 'rpi-overview',
-    group: '3d',
+    group: 'electronics',
     title: 'Raspberry Pi — Hardware Architecture Explorer',
     desc: 'An interactive 3D single-board computer hardware architecture explorer supporting three iconic generations of the Raspberry Pi.',
     href: 'https://jason9075.github.io/rpi-overview/',
@@ -9,7 +9,7 @@ export const DEMOS = [
   },
   {
     slug: 'fc-overview',
-    group: '3d',
+    group: 'electronics',
     title: 'BETAFPV Matrix 1S — Hardware Explorer',
     desc: 'An engineering-grade, double-sided Three.js PBR 3D reconstruction and interactive hardware explorer for the BETAFPV Matrix 1S Brushless Flight Controller (5IN1 II).',
     href: 'https://jason9075.github.io/fc_overview/',
@@ -270,5 +270,6 @@ export const GROUPS = [
   { id: 'vision', label: 'Computer Vision', color: '#B48EAD', short: 'Vision' },
   { id: 'math',   label: 'Math',            color: '#EBCB8B', short: 'Math'   },
   { id: 'cs',     label: 'CS & Algorithms', color: '#A3BE8C', short: 'CS'     },
+  { id: 'electronics', label: 'Electronics', color: '#D08770', short: 'Elec' },
   { id: 'game',   label: 'Games',           color: '#BF616A', short: 'Game'   },
 ];

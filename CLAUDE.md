@@ -47,7 +47,7 @@ scripts/
 ```js
 {
   slug: 'my-demo',          // kebab-case, unique
-  group: '3d',              // '3d' | 'vision' | 'math' | 'cs'
+  group: '3d',              // '3d' | 'vision' | 'math' | 'cs' | 'electronics' | 'game'
   title: 'My Demo Title',
   desc: 'One-sentence description.',
   href: 'https://jason9075.github.io/My-Demo/',
