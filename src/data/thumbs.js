@@ -1,4 +1,32 @@
 export const THUMBS = {
+  'cpp-smart-pointer': (accent) => {
+    const mono = 'font-family="JetBrains Mono, monospace"';
+    const ptr = (y, label) => `
+      <rect x="20" y="${y}" width="110" height="28" rx="4" fill="#3B4252" stroke="#4C566A" stroke-width="1"/>
+      <text x="32" y="${y + 18}" ${mono} font-size="10" fill="#D8DEE9">${label}</text>
+      <circle cx="118" cy="${y + 14}" r="3" fill="${accent}"/>`;
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      <defs>
+        <marker id="sp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 0 L10 5 L0 10 Z" fill="${accent}"/>
+        </marker>
+      </defs>
+      ${ptr(28, 'unique_ptr')}
+      ${ptr(76, 'shared_ptr')}
+      ${ptr(124, 'weak_ptr')}
+      <path d="M121 42 C 170 42, 180 30, 214 30" fill="none" stroke="${accent}" stroke-width="1.6" marker-end="url(#sp-arrow)" opacity="0.45"/>
+      <line x1="150" y1="28" x2="164" y2="44" stroke="#BF616A" stroke-width="2"/>
+      <line x1="164" y1="28" x2="150" y2="44" stroke="#BF616A" stroke-width="2"/>
+      <path d="M121 90 L 214 104" fill="none" stroke="${accent}" stroke-width="1.6" marker-end="url(#sp-arrow)"/>
+      <path d="M121 138 C 170 138, 180 124, 214 116" fill="none" stroke="${accent}" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#sp-arrow)"/>
+      <rect x="216" y="78" width="84" height="56" rx="6" fill="#3B4252" stroke="${accent}" stroke-width="1.6"/>
+      <text x="258" y="104" text-anchor="middle" ${mono} font-size="13" fill="#ECEFF4">T</text>
+      <text x="258" y="122" text-anchor="middle" ${mono} font-size="8" fill="#D8DEE9">use=1 weak=1</text>
+      <rect x="216" y="18" width="84" height="26" rx="6" fill="none" stroke="#4C566A" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="258" y="35" text-anchor="middle" ${mono} font-size="9" fill="#4C566A">moved-from</text>
+    </svg>`;
+  },
   'rpi-overview': (accent) => {
     const pins = Array.from({ length: 20 }, (_, i) => `
       <rect x="${13 + i * 7}" y="10" width="3" height="4" fill="#EBCB8B"/>

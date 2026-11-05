@@ -1,5 +1,13 @@
 export const DEMOS = [
   {
+    slug: 'cpp-smart-pointer',
+    group: 'cs',
+    title: 'C++ Smart Pointers',
+    desc: 'An interactive lab for C++ ownership semantics.',
+    href: 'https://jason9075.github.io/cpp-smart-pointer-page/',
+    tags: ['c++', 'smart-pointer', 'ownership', 'memory'],
+  },
+  {
     slug: 'rpi-overview',
     group: 'electronics',
     title: 'Raspberry Pi — Hardware Architecture Explorer',
