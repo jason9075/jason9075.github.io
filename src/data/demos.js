@@ -1,5 +1,13 @@
 export const DEMOS = [
   {
+    slug: 'esp32-overview',
+    group: 'electronics',
+    title: 'ESP32 NodeMCU-32S — Hardware Explorer',
+    desc: 'An interactive 3D explorer for the ESP32 NodeMCU-32S development board (38-pin, USB Type-C version).',
+    href: 'https://jason9075.github.io/esp32-overview/',
+    tags: ['esp32', 'hardware', 'microcontroller', 'interactive'],
+  },
+  {
     slug: 'cpp-smart-pointer',
     group: 'cs',
     title: 'C++ Smart Pointers',

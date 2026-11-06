@@ -27,6 +27,37 @@ export const THUMBS = {
       <text x="258" y="35" text-anchor="middle" ${mono} font-size="9" fill="#4C566A">moved-from</text>
     </svg>`;
   },
+  'esp32-overview': (accent) => {
+    const pins = Array.from({ length: 19 }, (_, i) => `
+      <rect x="${41 + i * 13}" y="44" width="5" height="5" rx="1" fill="#EBCB8B"/>
+      <rect x="${41 + i * 13}" y="131" width="5" height="5" rx="1" fill="#EBCB8B"/>`).join('');
+    const fins = Array.from({ length: 9 }, (_, i) =>
+      `<path d="M ${68 + i * 9} 66 V 114" stroke="#4C566A" stroke-width="0.6"/>`).join('');
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+      <rect width="320" height="180" fill="#2E3440"/>
+      <rect x="30" y="40" width="260" height="104" rx="6" fill="#1A1F2B"/>
+      <rect x="30" y="36" width="260" height="104" rx="6" fill="#242933" stroke="${accent}" stroke-width="1.2"/>
+      ${pins}
+      <g fill="none" stroke="${accent}" stroke-width="1" opacity="0.45">
+        <path d="M 160 72 H 180 V 60 H 205 M 160 104 H 185 V 116 H 236 M 212 88 H 246 V 74"/>
+      </g>
+      <rect x="40" y="58" width="116" height="64" rx="2" fill="#2E3440" stroke="#4C566A"/>
+      <path d="M 46 64 V 116 M 46 64 H 54 V 116 H 58 V 64" fill="none" stroke="${accent}" stroke-width="1.4"/>
+      <rect x="62" y="62" width="90" height="56" rx="2" fill="#D8DEE9" opacity="0.85"/>
+      <g opacity="0.6">${fins}</g>
+      <text x="107" y="93" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#2E3440">ESP32</text>
+      <rect x="186" y="74" width="26" height="26" rx="2" fill="#3B4252" stroke="#4C566A"/>
+      <rect x="216" y="104" width="18" height="10" rx="1" fill="#3B4252" stroke="#4C566A"/>
+      <g fill="#4C566A" stroke="#D8DEE9" stroke-width="0.8">
+        <rect x="244" y="54" width="12" height="12" rx="2"/><rect x="244" y="110" width="12" height="12" rx="2"/>
+      </g>
+      <g fill="#2E3440"><circle cx="250" cy="60" r="3"/><circle cx="250" cy="116" r="3"/></g>
+      <rect x="270" y="76" width="26" height="24" rx="8" fill="#D8DEE9" stroke="#4C566A"/>
+      <rect x="276" y="84" width="18" height="8" rx="4" fill="#2E3440"/>
+      <text x="160" y="166" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="${accent}">NODEMCU-32S · 38 PIN · USB-C</text>
+    </svg>`;
+  },
+
   'rpi-overview': (accent) => {
     const pins = Array.from({ length: 20 }, (_, i) => `
       <rect x="${13 + i * 7}" y="10" width="3" height="4" fill="#EBCB8B"/>
